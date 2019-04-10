@@ -35,9 +35,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="../admin.php" style="font-family: 'Rancho', cursive;"><i style="color:yellow" class="fas fa-phone-square"></i>Admin </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../team.php" style="font-family: 'Rancho', cursive;"><i style="color:yellow" class="fas fa-phone-square"></i> </a>
-            </li>
             <li class="nav-item dropdown" style="float: right;">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family: 'Tangerine', cursive;">
                     Join Us!
@@ -65,12 +62,20 @@
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                        <small id="emailHelp" class="form-text text-muted">This is the most important bit</small>
+                        <label for="formGroupExampleInput">Fullname</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1"> Set Password</label>
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Confirm Password</label>
                         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                     </div>
                 </form>
