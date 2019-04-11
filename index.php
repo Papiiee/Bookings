@@ -169,14 +169,14 @@
     <div class="row">
         <div class="col-md-6 col-sm-12" style="padding: 20px;">
             <div class="" style="width:100%;height: 400px;margin:1px;background-repeat:no-repeat;-webkit-border-radius: 22px;-moz-border-radius: 22px;border-radius: 22px;background-size: cover;background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('./images/coast.jpg');">
-                <br><br><br><br/><b><h3 style="font-family: 'Cormorant Garamond', serif;color:white;float:left;"> May 24th-28th,2019</h3></b>
-                <br/><br/><b><h2 style="font-family: 'Cormorant Garamond', serif;color: white;float:left;"> Mombasa City,Diani </h2></b>
+                <br><br><br><br/><b><h3 style="font-family: 'Cormorant Garamond', serif;color:white;float:left;"> May 28th,2019</h3></b>
+                <br/><br/><b><h2 style="font-family: 'Cormorant Garamond', serif;color: white;float:left;">Malindi</h2></b>
                 <br/><br/><br/><b><h4 style="font-family: 'Cormorant Garamond', serif;color: white;float:left;"> Night Concert </h4></b>
             </div>
         </div>
         <div class="col-md-6 col-sm-12" style="padding: 20px;">
             <div class="" style="width:100%;height: 400px;margin:1px;background-repeat:no-repeat;-webkit-border-radius: 22px;-moz-border-radius: 22px;border-radius: 22px;background-size: cover;background-image:  linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('./images/nakuru.jpg');">
-                <br><br><br/><b><h4 style="font-family: 'Cormorant Garamond', serif;color:white;float:left;"> July 24th-28th,2019</h4></b>
+                <br><br><br/><b><h4 style="font-family: 'Cormorant Garamond', serif;color:white;float:left;"> July 28th,2019</h4></b>
                 <br/><br/><b><h2 style="font-family: 'Cormorant Garamond', serif;color: white"> Nakuru </h2></b>
                 <br/><br/><br/><b><h4 style="font-family: 'Cormorant Garamond', serif;color: white;float:left;"> Youth Mentorship Program & Concert</h4></b>
             </div>
@@ -185,14 +185,14 @@
     <div class="row">
         <div class="col-md-6 col-sm-12" style="padding: 20px;">
             <div style="width:100%;height: 400px;margin:1px;background-repeat:no-repeat;-webkit-border-radius: 22px;-moz-border-radius: 22px;border-radius: 22px;background-size: cover;background-image:  linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('./images/p31.jpg');">
-                <br><br><br/><b><b><h4 style="font-family: 'Cormorant Garamond', serif;color:white;float:left;"> September 24th-28th,2019 </h4></b></b>
+                <br><br><br/><b><b><h4 style="font-family: 'Cormorant Garamond', serif;color:white;float:left;"> September 27th-28th,2019 </h4></b></b>
                 <br/><br/><b><b><h2 style="font-family: 'Cormorant Garamond', serif;color: white;float:left;"> Newyork City </h2></b></b>
                 <br/><br/><br/><b><b><h4 style="font-family: 'Cormorant Garamond', serif;color: white;float:left;"> World's Comedian Conference </h4></b></b>
             </div>
         </div>
         <div class="col-md-6 col-sm-12" style="padding: 20px;">
             <div style="width:100%;height: 400px;margin:1px;background-repeat:no-repeat;-webkit-border-radius: 22px;-moz-border-radius: 22px;border-radius: 22px;background-size: cover;background-image:  linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('./images/texas.jpg');">
-                <br><br><br/><b> <h4 style="font-family: 'Cormorant Garamond', serif;color:white;float:left;"> October 24th-28th,2019 </h4></b>
+                <br><br><br/><b> <h4 style="font-family: 'Cormorant Garamond', serif;color:white;float:left;"> October 16th,2019 </h4></b>
                 <br/><br/><b> <h2 style="font-family: 'Cormorant Garamond', serif;color: white;float:left;"> Houston Texas </h2></b>
                 <br/><br/><br/><b><h4 style="font-family: 'Cormorant Garamond', serif;color: white;float:left;">Invitation to Nickelodeon Kids' Choice Awards </h4></b>
             </div>

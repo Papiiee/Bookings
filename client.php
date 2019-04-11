@@ -4,14 +4,11 @@
     <head>
 
         <link rel="stylesheet" href="./css/bootstrap.min.css"/>
-        <link rel="stylesheet" type="text/css" href="./css/Assignment4.css"/>
-
-
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Bad+Script|Cormorant+Garamond|Rancho|Fredericka+the+Great|Handlee|Homemade+Apple|Philosopher|Playfair+Display+SC|Reenie+Beanie|Unna|Zilla+Slab" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Bad+Script|Dancing+Script|Indie+Flower|Pacifico|Cormorant+Garamond|Rancho|Fredericka+the+Great|Handlee|Homemade+Apple|Philosopher|Playfair+Display+SC|Reenie+Beanie|Unna|Zilla+Slab" rel="stylesheet">
     </head>
     <body>
 
@@ -28,20 +25,12 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="client.php" style="font-family:'Rancho', serif;"> <i style="color:pink;" class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family:'Rancho', serif;">
-                        Tickets
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#ticket" style="font-family:'Rancho', serif;">Book Ticket</a>
-                    </div>
-                </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="about.php"style="font-family:'Rancho', serif;"><i style="color:pink";></i>About</a>
+                </li>
 
-                    <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal" tabindex="-1"> <i style="color:pink;"class="fas fa-phone-square"></i> </i> Contact <span class="sr-only">(current)</span></a>
-                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php"style="font-family:'Rancho', serif;"><i style="color:dimgrey" class="fa fa-home"></i>Log out</a>
+                    <a class="nav-link" href="index.php"style="font-family:'Rancho', serif;"><i style="color:dimgrey";class="fab fa-accessible-icon"></i>Log out</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -51,36 +40,6 @@
         </div>
     </nav>
 
-    <!-- Ticket Modal -->
-    <div class="modal" id="ticket"tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" style="font-family:'Rancho', serif;">BOOK TICKET </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="formGroupExampleInput"style="font-family:'Rancho', serif;">Ticket Price</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
-                        </div>
-                        <div class="form-group">
-                            <label for="formGroupExampleInput"style="font-family:'Rancho', serif;">Number of Tickets</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal"style="font-family:'Rancho', serif;">Close</button>
-                    <button type="submit" class="btn btn-primary"style="font-family:'Rancho', serif;">Done</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -89,33 +48,69 @@
                 <div style="height: 500px;background-repeat:no-repeat;background-position: center;background-size: cover;background-image:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('./images/p42.jpg');">
 
                     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                    <h2 style="font-family:'Homemade Apple', cursive;color: white">Your ideal happy place</h2>
-                    <h4 style="font-family:'Homemade Apple', cursive;color:white">View our events and other details right here</h4>
+                    <h2 style="font-family: 'Indie Flower', cursive;color: white">Your ideal happy place</h2>
+                    <h4 style="font-family: 'Indie Flower', cursive;color:white">Something new and better for you every year</h4>
                 </div>
             </div>
         </div>
 
         <div class="container">
+            <br/> <br/><h2 style="color:yellow;font-family:'Homemade Apple', cursive;"> What's in this year?</h2>
+
             <div class="row">
-                <div class="col-sm-12">
-                    <div style="height: 400px;width:100%;border-radius:20px;background-repeat:no-repeat;background-size: cover;opacity:0.7;float:left;background-image: url('./images/p8.jpg');"></div>
+                <h4 style="color:slategrey;font-family:'Homemade Apple', cursive;"> Upcoming Events over the year</h4>
 
-                    <b><p> </p></b>
+            </div>
 
+            <div class="row">
+                <div class="col-md-6 col-sm-12" style="padding: 20px;">
+                    <div class="" style="width:100%;height: 400px;margin:1px;background-repeat:no-repeat;-webkit-border-radius: 50px;-moz-border-radius: 50px;border-radius: 50px;background-size: cover;background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('./images/p7.jpg');">
+                        <br/><br/><br/><b><h1 style="font-family:'Dancing Script', cursive;color: white;float:left;"> Live show!</h1></b>
+                        <br/><br/>br/><br/><br/><br/><br/>
+                        <a href="events.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="opacity: 0.6;">View more details</a>
+                    </div>
                 </div>
-                <div class="col-sm-12">
-                    <div style="height: 400px;width:100%;border-radius:20px;background-repeat:no-repeat;background-size: cover;opacity:0.7;float:left;background-image: url('./images/p7.jpg');"></div>
-
-                    <b><p></p></b>
-                </div>
-                <div class="col-sm-12">
-                    <div style="height: 400px;width:100%;border-radius:20px;background-repeat:no-repeat;background-size: cover;opacity:0.7;float:left;background-image: url('./images/p38.jpg');"></div>
-
-                    <b><p></p></b>
+                <div class="col-md-6 col-sm-12" style="padding: 20px;">
+                    <div class="" style="width:100%;height: 400px;margin:1px;background-repeat:no-repeat;-webkit-border-radius: 50px;-moz-border-radius: 50px;border-radius: 50px;background-size: cover;background-image:  linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('./images/p47.jpg');">
+                        <br/><br/><br/><b><h1 style="font-family: 'Dancing Script', cursive;color: white;float:left;"> Night Concert!</h1></b>
+                        <br/><br/><br/><br/><br/><br/><br/>
+                        <a href="events.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="opacity: 0.6;">View more details</a>
+                    </div>
                 </div>
             </div>
-        </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-12" style="padding: 20px;">
+                    <div style="width:100%;height: 400px;margin:1px;background-repeat:no-repeat;-webkit-border-radius: 50px;-moz-border-radius: 50px;border-radius: 50px;background-size: cover;background-image:  linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('./images/p22.jpg');">
+                        <br/><br/><br/><b><b><h1 style="font-family:'Dancing Script', cursive; color: white;float:left;">The Eat Out! </h1></b></b>
+                        <br/><br/>br/><br/><br/><br/><br/>
+                        <a href="events.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="opacity: 0.6;">View more details</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12" style="padding: 20px;">
+                    <div style="width:100%;height: 400px;margin:1px;background-repeat:no-repeat;-webkit-border-radius: 50px;-moz-border-radius: 50px;border-radius: 50px;background-size: cover;background-image:  linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('./images/p44.jpg');">
+                        <br/><br/><br/><b><h1 style="font-family:'Dancing Script', cursive;color: white;float:left;">Kids' Festival!</h1></b>
+                        <br/><br/>br/><br/><br/><br/><br/>
+                        <a href="events.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="opacity: 0.6;"> View more details</a>
+                    </div>
+                </div>
+            </div>
 
+            <br/> <br/> <br/>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12" style="padding: 20px;">
+                        <div class="" style="width:100%;height: 700px;margin:1px;background-repeat:no-repeat;opacity:10;background-size: cover;background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),url('./images/p45.jpg');">
+                            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                            <b><h2 style="color: white;font-family: 'Pacifico', cursive;"> Churchill Show turns 16 years!</h2></b>
+                            <b><h3 style="color:white;font-family: 'Cormorant Garamond', serif;">Join us as we celebrate 16 yrs at Amani Tiwi Hotel, Diani this year!</h3></b>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
 
 
 
