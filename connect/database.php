@@ -1,21 +1,31 @@
 <?php
 
-error_reporting(0);
-$host = '127.0.0.1';
-$username = 'homestead';
-$password = 'secret';
-$database = 'Bookings';
-$port='3306';
+class Database
+{
+    // database connection variables
+    private $host = "127.0.0.1";
+    private $username = "homestead";
+    private $password = "secret";
+    private $database = "Bookings";
+    private $port = "3306";
 
-$db = mysqli_connect ("127.0.0.1", "homestead", "secret", "Bookings", "3306");
-if(mysqli_connect_errno()) {
+    public $conn;
 
-    echo "Failed to connect to mySQL:". mysqli_connect_error();
+    // database connection function
+    public function connection()
+    {
+        $this->conn = null;
 
-} else {
+        try {
 
-  echo("Connection Successful!");
+            $this->conn = mysqli_connect($this->host, $this->username, $this->password, $this->database, $this->port);
 
+        } catch (mysqli_sql_exception $exception) {
+            echo "Connection error: " . $exception->getMessage();
+        }
+
+        return $this->conn;
+    }
 }
 
 ?>

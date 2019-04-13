@@ -25,7 +25,7 @@
 
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="client.php" style="font-family:'Rancho', serif;"> <i style="color:pink;" class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="admin_page.php" style="font-family:'Rancho', serif;"> <i style="color:deepskyblue;" class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family:'Rancho', serif;">
@@ -36,7 +36,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php"style="font-family:'Rancho', serif;"><i style="color:pink" class="fab fa-accessible-icon"></i>Log out</a>
+                <a class="nav-link" href="../index.php"style="font-family:'Rancho', serif;"><i style="color:deepskyblue" class="fab fa-accessible-icon"></i>Log out</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -59,35 +59,35 @@
                 <div class="modal-body">
                 <form>
                     <div class="form-group">
-                        <label for="formGroupExampleInput"style="font-family:'Rancho', serif;">Event Name</label>
+                        <label for="formGroupExampleInput" style="font-family:'Rancho', serif;">Event Name</label>
                         <select class="custom-select" id="inputGroupSelect02">
                             <option selected>Choose...</option>
-                            <option value="1"style="font-family: 'Nanum Myeongjo', serif;">Live Show</option>
-                            <option value="2"style="font-family: 'Nanum Myeongjo', serif;">Malindi Concert</option>
-                            <option value="3"style="font-family: 'Nanum Myeongjo', serif;">The Eat Out</option>
-                            <option value="4"style="font-family: 'Nanum Myeongjo', serif;">Kids' Festival</option>
-                            <option value="5"style="font-family: 'Nanum Myeongjo', serif;">Celebrating 16 yrs</option>
-                            <option value="6"style="font-family: 'Nanum Myeongjo', serif;">Mombasa Concert</option>
-                            <option value="7"style="font-family: 'Nanum Myeongjo', serif;">Nakuru Concert</option>
+                            <option value="1" style="font-family: 'Nanum Myeongjo', serif;">Live Chronicle Show</option>
+                            <option value="2" style="font-family: 'Nanum Myeongjo', serif;">Malindi Concert</option>
+                            <option value="3" style="font-family: 'Nanum Myeongjo', serif;">The Eat Out</option>
+                            <option value="4" style="font-family: 'Nanum Myeongjo', serif;">Kids' Festival</option>
+                            <option value="5" style="font-family: 'Nanum Myeongjo', serif;">Celebrating 16 yrs</option>
+                            <option value="6" style="font-family: 'Nanum Myeongjo', serif;">Mombasa Concert</option>
+                            <option value="7" style="font-family: 'Nanum Myeongjo', serif;">Nakuru Concert</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput"style="font-family:'Rancho', serif;">Number of Tickets</label>
                         <select class="custom-select" id="inputGroupSelect02">
                             <option selected>Choose...</option>
-                            <option value="1"style="font-family: 'Nanum Myeongjo', serif;">1</option>
-                            <option value="2"style="font-family: 'Nanum Myeongjo', serif;">2</option>
-                            <option value="3"style="font-family: 'Nanum Myeongjo', serif;">3</option>
-                            <option value="4"style="font-family: 'Nanum Myeongjo', serif;">4</option>
-                            <option value="5"style="font-family: 'Nanum Myeongjo', serif;">5</option>
+                            <option value="1" style="font-family: 'Nanum Myeongjo', serif;">1</option>
+                            <option value="2" style="font-family: 'Nanum Myeongjo', serif;">2</option>
+                            <option value="3" style="font-family: 'Nanum Myeongjo', serif;">3</option>
+                            <option value="4" style="font-family: 'Nanum Myeongjo', serif;">4</option>
+                            <option value="5" style="font-family: 'Nanum Myeongjo', serif;">5</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput"style="font-family:'Rancho', serif;">Ticket Price</label>
                         <select class="custom-select" id="inputGroupSelect02">
                             <option selected>Choose...</option>
-                            <option value="1"style="font-family: 'Nanum Myeongjo', serif;">VIP(2500)</option>
-                            <option value="2"style="font-family: 'Nanum Myeongjo', serif;">Regular(1000)</option>
+                            <option value="1" style="font-family: 'Nanum Myeongjo', serif;">VIP(2500)</option>
+                            <option value="2" style="font-family: 'Nanum Myeongjo', serif;">Regular(1000)</option>
                         </select>
                     </div>
                 </form>
@@ -111,7 +111,7 @@
     <div class="row">
         <div class="col-md-6 col-sm-12" style="padding: 20px;">
             <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="p7.jpg">
+                <img src="../images/p7.jpg" class="card-img-top" alt="p7.jpg">
                 <div class="card-body">
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
@@ -120,7 +120,7 @@
         </div>
         <div class="col-md-6 col-sm-12" style="padding: 20px;">
             <div class="card" style="width: 18rem;">
-                <img src="p47.jpg" class="card-img-top" alt="p47.jpg">
+                <img src="../images/p47.jpg" class="card-img-top" alt="p47.jpg">
                 <div class="card-body">
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
@@ -130,7 +130,7 @@
     <div class="row">
         <div class="col-md-6 col-sm-12" style="padding: 20px;">
             <div class="card" style="width: 18rem;">
-                <img src="p22.jpg" class="card-img-top" alt="p22.jpg">
+                <img src="../images/p22.jpg" class="card-img-top" alt="p22.jpg">
                 <div class="card-body">
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
@@ -138,7 +138,7 @@
         </div>
         <div class="col-md-6 col-sm-12" style="padding: 20px;">
             <div class="card" style="width: 18rem;">
-                <img src="p44.jpg" class="card-img-top" alt="p44.jpg">
+                <img src="../images/p44.jpg" class="card-img-top" alt="p44.jpg">
                 <div class="card-body">
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
@@ -152,7 +152,7 @@
         <div class="row">
             <div class="col-md-12 col-sm-12" style="padding: 20px;width:100%;height: 800px;">
                 <div class="card" style="width: 18rem;">
-                    <img src="p45.jpg" class="card-img-top" alt="p45.jpg">
+                    <img src="../images/p45.jpg" class="card-img-top" alt="p45.jpg">
                     <div class="card-body">
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     </div>

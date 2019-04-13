@@ -1,10 +1,10 @@
 <?php
-//include_once 'connect/database.php';
+include_once 'connect/database.php';
 ?>
 
 <!DOCTYPE html>
 <html>
-<body>
+
 <head>
     <title> Churchill Show </title>
     <link rel="stylesheet" href="./css/bootstrap.min.css"/>
@@ -15,9 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Bad+Script|Cormorant+Garamond|Rancho|Fredericka+the+Great|Handlee|Homemade+Apple|Philosopher|Playfair+Display+SC|Reenie+Beanie|Unna|Zilla+Slab" rel="stylesheet">
 </head>
 
-
-
-
+<body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: darkgrey">
     <a class="navbar-brand" href="#" style="font-family:'Fredericka the Great', cursive;">The Churchill Show </a>
@@ -27,13 +25,13 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="../index.php" style="font-family:'Rancho', serif;"><i style="color:yellow" class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.php" style="font-family:'Rancho', serif;"><i style="color:yellow" class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../client.php" style="font-family: 'Rancho', cursive;"><i style="color:yellow" class="fas fa-book-open"></i> Reservations</a>
+                <a class="nav-link" href="client/client_page.php" style="font-family: 'Rancho', cursive;"><i style="color:yellow" class="fas fa-book-open"></i> Reservations</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../admin.php" style="font-family: 'Rancho', cursive;"><i style="color:yellow" class="fas fa-phone-square"></i>Admin </a>
+                <a class="nav-link" href="admin/admin_page.php" style="font-family: 'Rancho', cursive;"><i style="color:yellow" class="fas fa-phone-square"></i>Admin </a>
             </li>
             <li class="nav-item dropdown" style="float: right;">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family: 'Tangerine', cursive;">
@@ -48,19 +46,82 @@
     </div>
 </nav>
 
+<?php
+session_start();
+require_once('auth/auth.php');
+$signup_user = new Authentications();
+if ($signup_user->is_signed_in()) {
+    if ($_SESSION['user_type'] == 1) {
+        $signup_user->redirect('../admin/admin_page.php');
+    } else {
+        $signup_user->redirect('../client/client_page.php');
+    }
+}
+$full_name = $email = $password = $confirm_password = $modal_error = "";
+$full_name_err = $email_err = $password_err = $confirm_password_err = $modal_err = "";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Validate Modal
+    if (
+        empty(trim($_POST["full_name"]))
+        && empty(trim($_POST["email"]))
+        && empty(trim($_POST["password"]))
+        && empty(trim($_POST["confirm_password"]))
+    ) {
+        $modal_error = "Please fill in the required details before submitting.";
+    }
+    // Validate Password
+    if (strlen(trim($_POST["password"])) < 6) {
+        $password_err = "Your password must have at least 6 characters.";
+    } else {
+        $password = trim($_POST["password"]);
+    }
+    if (empty(trim($_POST["confirm_password"]))) {
+        $confirm_password_err = "Please confirm password.";
+    } else {
+        $confirm_password = trim($_POST["confirm_password"]);
+        if (empty($password_err) && ($password != $confirm_password)) {
+            $confirm_password_err = "Passwords do not match.";
+        }
+    }
+    // If no errors submit form
+    if (
+        empty($full_name_err) &&
+        empty($email_err) &&
+        empty($password_err) &&
+        empty($confirm_password_err)
+    ) {
+        $email = $_POST["email"];
+        $statement = $signup_user->runQuery("SELECT * FROM users WHERE email = '$email'");
+        mysqli_stmt_execute($statement);
+        mysqli_stmt_store_result($statement);
+        if (mysqli_stmt_num_rows($statement) == 1) {
+            $email_err = "This user email provided already exists.";
+        } else {
+            $full_name = trim($_POST["full_name"]);
+            $email = trim($_POST["email"]);
+            $password = password_hash(trim($_POST["password"]), PASSWORD_DEFAULT);
 
+            if ($signup_user->signup($full_name,$email,$password,$confirm_password,$role = 2)){
+                $signup_user->redirect("client/client_page.php");
+            }else{
+                $modal_err = "Please check your details are correct";
+            }
+        }
+    }
+}
+?>
 <!-- Modal -->
 <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Sign in </h5>
+                <h5 class="modal-title" id="exampleModalLabel">Sign Up </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form action="index.php" method="post">
                     <div class="form-group">
                         <label for="formGroupExampleInput">Fullname</label>
                         <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
@@ -90,12 +151,55 @@
 </div>
 
 
+<?php
+
+require_once 'auth/auth.php';
+
+$signedin_user = new Authentications();
+if ($signedin_user->is_signed_in()) {
+    if ($_SESSION['roles_id'] == 1) {
+        $signedin_user->redirect('../admin/admin_page.php');
+    } else {
+        $signedin_user->redirect('../client/client_page.php');
+    }
+}
+$email = $password = "";
+$roles_id = null;
+$email_err = $password_err = $modal_err = "";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Check if email and password are empty
+    if (empty(trim($_POST["email"]))) {
+        $email_err = "Kindly provide an email to proceed.";
+    } else {
+        $email = trim($_POST["email"]);
+    }
+    if (empty(trim($_POST["password"]))) {
+        $password_err = "Kindly enter your password.";
+    } else {
+        $password = trim($_POST["password"]);
+    }
+    // Validate credentials on database
+    if (empty($email_err) && empty($password_err)) {
+        if ($signedin_user->signin($email, $password)) {
+            if ($_SESSION['roles_id'] == 1) {
+                // admin/ events manager
+                $signedin_user->redirect('../admin/admin_page.php');
+            } elseif ($_SESSION['roles_id'] == 2) {
+                // client
+                $signedin_user->redirect('../client/client_page.php');
+            }
+        }else{
+            $modal_err = "Please check your details are correct";
+        }
+    }
+}
+?>
 
 <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Already have an account?</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Sign In </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -133,17 +237,17 @@
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <div style="height: 500px;background-repeat:no-repeat;background-position: center;background-size: cover;opacity:10;background-image: url('./images/p3.jpg');">
+            <div style="height: 800px;background-repeat:no-repeat;background-position: center;background-size: cover;opacity:10;background-image: url('./images/p3.jpg');">
 
             </div>
         </div>
         <div class="carousel-item">
-            <div style="height: 500px;background-repeat:no-repeat;background-position: center;background-size: cover;opacity:10;background-image: url('./images/p9.jpg');">
+            <div style="height: 800px;background-repeat:no-repeat;background-position: center;background-size: cover;opacity:10;background-image: url('./images/p9.jpg');">
 
             </div>
         </div>
         <div class="carousel-item">
-            <div style="height: 500px;background-repeat:no-repeat;background-position: center;background-size: cover;opacity:10;background-image: url('./images/p14.jpg');">
+            <div style="height: 800px;background-repeat:no-repeat;background-position: center;background-size: cover;opacity:10;background-image: url('./images/p1.jpg');">
 
             </div>
         </div>
