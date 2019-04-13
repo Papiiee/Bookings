@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1af99642-61b7-4702-ac8f-465fd5edd068" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authentications/authe.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/about.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/connect/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/connect/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/events.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-    </list>
+    <list default="true" id="1af99642-61b7-4702-ac8f-465fd5edd068" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,12 +164,12 @@
       <workItem from="1554452247633" duration="20316000" />
       <workItem from="1554476920152" duration="1554000" />
       <workItem from="1554479118522" duration="88329000" />
-      <workItem from="1555079708154" duration="23216000" />
+      <workItem from="1555079708154" duration="24232000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135872000" />
+    <option name="totallyTimeSpent" value="136888000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -191,7 +182,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49903288" weight="0.2659091" />
       <window_info id="Structure" order="1" sideWeight="0.50096714" side_tool="true" weight="0.25757575" />
@@ -206,7 +196,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.16123779" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.18241042" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
