@@ -108,61 +108,61 @@
 
     </div>
 
-    <div class="row">
-        <div class="col-md-6 col-sm-12" style="padding: 20px;">
-            <div class="card" style="width: 18rem;">
-                <img src="../images/p7.jpg" class="card-img-top" alt="p7.jpg">
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-sm-12" style="padding: 20px;">
-            <div class="card" style="width: 18rem;">
-                <img src="../images/p47.jpg" class="card-img-top" alt="p47.jpg">
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 col-sm-12" style="padding: 20px;">
-            <div class="card" style="width: 18rem;">
-                <img src="../images/p22.jpg" class="card-img-top" alt="p22.jpg">
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-sm-12" style="padding: 20px;">
-            <div class="card" style="width: 18rem;">
-                <img src="../images/p44.jpg" class="card-img-top" alt="p44.jpg">
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <br/> <br/> <br/>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-sm-12" style="padding: 20px;width:100%;height: 800px;">
-                <div class="card" style="width: 18rem;">
-                    <img src="../images/p45.jpg" class="card-img-top" alt="p45.jpg">
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-
-                </div>
-            </div>
-
-        </div>
-
+<!--    <div class="row">-->
+<!--        <div class="col-md-6 col-sm-12" style="padding: 20px;">-->
+<!--            <div class="card" style="width: 18rem;">-->
+<!--                <img src="../images/p7.jpg" class="card-img-top" alt="p7.jpg">-->
+<!--                <div class="card-body">-->
+<!--                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-md-6 col-sm-12" style="padding: 20px;">-->
+<!--            <div class="card" style="width: 18rem;">-->
+<!--                <img src="../images/p47.jpg" class="card-img-top" alt="p47.jpg">-->
+<!--                <div class="card-body">-->
+<!--                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="row">-->
+<!--        <div class="col-md-6 col-sm-12" style="padding: 20px;">-->
+<!--            <div class="card" style="width: 18rem;">-->
+<!--                <img src="../images/p22.jpg" class="card-img-top" alt="p22.jpg">-->
+<!--                <div class="card-body">-->
+<!--                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-md-6 col-sm-12" style="padding: 20px;">-->
+<!--            <div class="card" style="width: 18rem;">-->
+<!--                <img src="../images/p44.jpg" class="card-img-top" alt="p44.jpg">-->
+<!--                <div class="card-body">-->
+<!--                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!---->
+<!--    <br/> <br/> <br/>-->
+<!---->
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+<!--            <div class="col-md-12 col-sm-12" style="padding: 20px;width:100%;height: 800px;">-->
+<!--                <div class="card" style="width: 18rem;">-->
+<!--                    <img src="../images/p45.jpg" class="card-img-top" alt="p45.jpg">-->
+<!--                    <div class="card-body">-->
+<!--                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!---->
+<!--                </div>-->
+<!--            </div>-->
+<!---->
+<!--        </div>-->
+<!---->
 
 
 
