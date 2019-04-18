@@ -1,5 +1,20 @@
+<?php
+include_once '../connect/database.php';
+include_once '../controller/controller.php';
+if(!isset($_SESSION['user'])) {
+
+    header('Location: /');
+
+}
+//echo $_SERVER['REQUEST_URI'];
+
+$showItems = 1;
+
+$showEdit = 0;
+
+?>
+
 <DOCTYPE html>
-    <!DOCTYPE html>
     <html>
     <head>
 
@@ -12,34 +27,7 @@
     </head>
     <body>
 
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#" style="font-family:'Homemade Apple', cursive;">Welcome!</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="client_page.php" style="font-family:'Rancho', serif;"> <i style="color:pink;" class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="about.php"style="font-family:'Rancho', serif;"><i style="color:pink";></i>About</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="../index.php"style="font-family:'Rancho', serif;"><i style="color:dimgrey";class="fab fa-accessible-icon"></i>Log out</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="font-family:'Rancho', serif;">Search</button>
-            </form>
-        </div>
-    </nav>
-
+    <?php include_once ('../controller/nav.php') ?>
 
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -51,6 +39,8 @@
                     <h2 style="font-family: 'Indie Flower', cursive;color: white">Your ideal happy place</h2>
                     <h4 style="font-family: 'Indie Flower', cursive;color:white">Something new and better for you every year</h4>
                 </div>
+
+
             </div>
         </div>
 
@@ -63,43 +53,45 @@
             </div>
 
             <div class="row">
-                <div class="col-md-6 col-sm-12" style="padding: 20px;">
+                <div class="col-md-6 col-sm-12" style="padding: 40px;">
                     <div class="" style="width:100%;height: 400px;margin:1px;background-repeat:no-repeat;-webkit-border-radius: 50px;-moz-border-radius: 50px;border-radius: 50px;background-size: cover;background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/p7.jpg');">
                         <br/><br/><br/><b><h1 style="font-family:'Dancing Script', cursive;color: white;float:left;"> Live Chronicle show!</h1></b>
                         <br/><br/><br/><br/><br/><br/><br/>
-                        <a href="../client/events.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="opacity: 0.6;">View more details</a>
+                        <a href="../client/events.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="font-family:'Rancho', serif;opacity: 0.6;">View more details</a>
                     </div>
                 </div>
-                <div class="col-md-6 col-sm-12" style="padding: 20px;">
+                <div class="col-md-6 col-sm-12" style="padding: 40px;">
                     <div class="" style="width:100%;height: 400px;margin:1px;background-repeat:no-repeat;-webkit-border-radius: 50px;-moz-border-radius: 50px;border-radius: 50px;background-size: cover;background-image:  linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/p47.jpg');">
                         <br/><br/><br/><b><h1 style="font-family: 'Dancing Script', cursive;color: white;float:left;"> Night Concert!</h1></b>
                         <br/><br/><br/><br/><br/><br/><br/>
-                        <a href="../client/events.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="opacity: 0.6;">View more details</a>
+                        <a href="../client/events.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="font-family:'Rancho', serif;opacity: 0.6;">View more details</a>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6 col-sm-12" style="padding: 20px;">
+                <div class="col-md-6 col-sm-12" style="padding: 40px;">
                     <div style="width:100%;height: 400px;margin:1px;background-repeat:no-repeat;-webkit-border-radius: 50px;-moz-border-radius: 50px;border-radius: 50px;background-size: cover;background-image:  linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/p22.jpg');">
                         <br/><br/><br/><b><b><h1 style="font-family:'Dancing Script', cursive; color: white;float:left;">The Eat Out! </h1></b></b>
                         <br/><br/>br/><br/><br/><br/><br/>
-                        <a href="../client/events.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="opacity: 0.6;">View more details</a>
+                        <a href="../client/events.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="font-family:'Rancho', serif;opacity: 0.6;">View more details</a>
                     </div>
                 </div>
-                <div class="col-md-6 col-sm-12" style="padding: 20px;">
+                <div class="col-md-6 col-sm-12" style="padding: 40px;">
                     <div style="width:100%;height: 400px;margin:1px;background-repeat:no-repeat;-webkit-border-radius: 50px;-moz-border-radius: 50px;border-radius: 50px;background-size: cover;background-image:  linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/p44.jpg');">
                         <br/><br/><br/><b><h1 style="font-family:'Dancing Script', cursive;color: white;float:left;">Kids' Festival!</h1></b>
                         <br/><br/>br/><br/><br/><br/><br/>
-                        <a href="../client/events.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="opacity: 0.6;"> View more details</a>
+                        <a href="../client/events.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="font-family:'Rancho', serif;opacity: 0.6;"> View more details</a>
+                    </div>
+                    <br/> <br/> <br/>
+                    <div>
+                    <a href="../client/events.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="font-family:'Rancho', serif;float:right;background-color: #17a2b8"><i style="background-color: dimgrey" class="fas fa-arrow-circle-right"></i>See all our upcoming events</a>
                     </div>
                 </div>
             </div>
-
-            <br/> <br/> <br/>
-
+            <br/>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 col-sm-12" style="padding: 20px;">
+                    <div class="col-md-12 col-sm-12" style="padding: 60px;">
                         <div class="" style="width:100%;height: 700px;margin:1px;background-repeat:no-repeat;opacity:10;background-size: cover;background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),url('../images/p45.jpg');">
                             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                             <b><h2 style="color: white;font-family: 'Pacifico', cursive;"> Churchill Show turns 16 years!</h2></b>
@@ -111,34 +103,123 @@
 
                 </div>
             </div>
-            <br/><br/>
-            <div class="container">
-                <div style="color: deepskyblue;font-family: 'Pacifico', cursive;"><h1>More...</h1></div>
-                <br/><br/>
-                <div class="row">
-                    <div class="col-sm">
-                        <div style="height: 400px;width:100%;border-radius:20px;background-repeat:no-repeat;background-size: cover;opacity:10;float:left;background-image: url('../images/p25.jpg');">
-                            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                        <b><h3 style="font-family:'Dancing Script', cursive;color: white;">Share drinks with friends at the carnival! </h3></b>
-                        </div>
-                    </div>
-                    <div class="col-sm">
-                        <div style="height: 400px;width:100%;border-radius:20px;background-repeat:no-repeat;background-size: cover;opacity:10;float:left;background-image: url('../images/p23.jpg');">
-                            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                        <b><h3 style="font-family:'Dancing Script', cursive;color: white;"> Enjoy Food too here at Carnival!</h3></b>
-                        </div>
-                    </div>
-                    <div class="col-sm">
-                        <div style="height: 400px;width:100%;border-radius:20px;background-repeat:no-repeat;background-size: cover;opacity:10;float:left;background-image: url('../images/p26.jpg');">
-                            <br/><br/><br/><br/>
-                        <b><h3 style="font-family:'Dancing Script', cursive;color: slategrey;"> Thanking our supportive sponsors,Coke!</h3></b>
-                        </div>
-                    </div>
+    </body>
+    <footer class="page-footer font-small mdb-color lighten-3 pt-4">
+
+
+        <div class="container text-center text-md-left">
+
+
+            <div class="row">
+
+
+                <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">Footer Content</h5>
+                    <p>Here you can use rows and columns here to organize your footer content.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit amet numquam iure provident voluptate esse
+                        quasi, veritatis totam voluptas nostrum.</p>
+
                 </div>
+
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">About</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <p>
+                                <a href="#!">PROJECTS</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="#!">ABOUT US</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="#!">BLOG</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="#!">AWARDS</a>
+                            </p>
+                        </li>
+                    </ul>
+
+                </div>
+                <hr class="clearfix w-100 d-md-none">
+
+
+                <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">Address</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <p>
+                                <i class="fas fa-home mr-3"></i> NAIROBI, NB +254, KE</p>
+                        </li>
+                        <li>
+                            <p>
+                                <i class="fas fa-envelope mr-3"></i> greystone@gmail.com</p>
+                        </li>
+                        <li>
+                            <p>
+                                <i class="fas fa-phone mr-3"></i> + 254 789 1231</p>
+                        </li>
+                        <li>
+                            <p>
+                                <i class="fas fa-print mr-3"></i> + 254 234 5672</p>
+                        </li>
+                    </ul>
+
+                </div>
+                <hr class="clearfix w-100 d-md-none">
+
+
+                <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
+
+
+                    <h5 class="font-weight-bold text-uppercase mb-4">Follow Us</h5>
+
+
+                    <a type="button" class="btn-floating btn-fb">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+
+                    <a type="button" class="btn-floating btn-tw">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+
+                    <a type="button" class="btn-floating btn-gplus">
+                        <i class="fab fa-google-plus-g"></i>
+                    </a>
+
+                    <a type="button" class="btn-floating btn-dribbble">
+                        <i class="fab fa-dribbble"></i>
+                    </a>
+
+                </div>
+
+
             </div>
 
 
+        </div>
+        <div class="footer-copyright text-center py-3">© 2018 Copyright:
+            <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+        </div>
 
 
-    </body>
+    </footer>
+
     </html>

@@ -8,7 +8,6 @@ class Database
     private $password = "secret";
     private $database = "Bookings";
     private $port = "3306";
-
     public $conn;
 
     // database connection function
@@ -18,7 +17,7 @@ class Database
 
         try {
 
-            $this->conn = mysqli_connect($this->host, $this->username, $this->password, $this->database, $this->port);
+            $this->conn = new mysqli($this->host, $this->username, $this->password, $this->database, $this->port);
 
         } catch (mysqli_sql_exception $exception) {
             echo "Connection error: " . $exception->getMessage();
