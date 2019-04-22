@@ -31,7 +31,7 @@ if($userRole == 1) {
 }
 
 
-echo '<a href="#" data-toggle="modal" data-target="#ticket'.$id.'" class="btn btn-outline-success float-right"><i class="fas fa-ticket-alt"  style="font-family:\'Rancho\', serif;"></i> Reserve Ticket</a>
+echo '<a href="#" data-toggle="modal" data-target="#ticket'.$id.'" class="btn btn-outline-success float-right"><i class="fas fa-ticket-alt"></i> Reserve Ticket</a>
                 
                 </div>
                 
@@ -45,8 +45,8 @@ echo '<a href="#" data-toggle="modal" data-target="#ticket'.$id.'" class="btn bt
 <div class="modal fade" id="delete'.$id.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-trash"  style="font-family:\'Rancho\', serif;"></i> DELETE '.$name.'</h5>
+      <div class="modal-header" style="font-family:\'Rancho\', serif;">
+        <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-trash" ></i> DELETE '.$name.'</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -71,8 +71,8 @@ echo '<a href="#" data-toggle="modal" data-target="#ticket'.$id.'" class="btn bt
 <div class="modal fade" id="unDelete'.$id.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-eye"  style="font-family:\'Rancho\', serif;"></i> UN DELETE '.$name.'</h5>
+      <div class="modal-header"  style="font-family:\'Rancho\', serif;">
+        <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-eye"></i> UN DELETE '.$name.'</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -118,7 +118,7 @@ echo'<div class="modal fade" id="ticket'.$id.'" tabindex="-1"  role="dialog" >
                     </div>
                     
                      <div class="form-group">
-                        <label for="formGroupExampleInput">Number of Regular Tickets <form style="border-radius:4px;color:#ffffff;background-color: green;padding: 5px;">'.$event['regular_price'].'/= per Ticket</label>
+                        <label for="formGroupExampleInput">Number of Regular Tickets <span style="border-radius:4px;color:#ffffff;background-color: green;padding: 5px;">'.$event['regular_price'].'/= per Ticket</span></label>
                         <select class="custom-select" type="number"required name="numberOfRegular">
                             <option selected>Select number</option>
                             <option value="1">1</option>

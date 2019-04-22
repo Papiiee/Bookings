@@ -6,7 +6,6 @@ if(!isset($_SESSION['user'])) {
     header('Location: /');
 
 }
-//echo $_SERVER['REQUEST_URI'];
 
 $showItems = 1;
 
@@ -32,24 +31,17 @@ $showEdit = 0;
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-
                 <div style="height: 500px;background-repeat:no-repeat;background-position: center;background-size: cover;background-image:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/p42.jpg');">
-
                     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                     <h2 style="font-family: 'Indie Flower', cursive;color: white">Your ideal happy place</h2>
                     <h4 style="font-family: 'Indie Flower', cursive;color:white">Something new and better for you every year</h4>
                 </div>
-
-
             </div>
         </div>
-
         <div class="container">
             <br/> <br/><h2 style="color:yellow;font-family:'Homemade Apple', cursive;"> What's in this year?</h2>
-
             <div class="row">
                 <h4 style="color:slategrey;font-family:'Homemade Apple', cursive;"> Upcoming Events over the year</h4>
-
             </div>
 
             <div class="row">

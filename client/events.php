@@ -268,7 +268,7 @@ if (empty($vip_no) || empty($regular_no)) {
 
 <div class="container">
     <br/>
-    <h2><i class="fa fa-list"></i> Our Event Details</h2>
+    <h2 style="font-family:'Rancho', serif;"><i class="fa fa-list" style="color:yellow;"></i> Our Event Details</h2>
     <br>
     <div class="row">
         <?php
@@ -293,11 +293,7 @@ if (empty($vip_no) || empty($regular_no)) {
 
 include ('../controller/action.php');
 
- } else {
-
-       //Do Nothing
-
-  }
+ }
 }
 ?>
  </div>
@@ -313,15 +309,15 @@ include ('../controller/action.php');
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" style="font-family:'Rancho', serif;">
                     <form enctype="multipart/form-data" method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>">
                             <div class="form-group">
-                            <label for="formGroupExampleInput" style="font-family:'Rancho', serif;">Event Name</label>
+                            <label for="formGroupExampleInput">Event Name</label>
                             <input type="text" class="form-control" required name="eventName" placeholder="Event Name">
                         </div>
 
                         <div class="form-group">
-                            <label for="formGroupExampleInput" style="font-family:'Rancho', serif;">Tickets Available</label>
+                            <label for="formGroupExampleInput">Tickets Available</label>
 
                             <div class="row">
                                 <div class="col">
@@ -333,7 +329,7 @@ include ('../controller/action.php');
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="formGroupExampleInput" style="font-family:'Rancho', serif;">Ticket Price</label>
+                            <label for="formGroupExampleInput" s>Ticket Price</label>
 
                             <div class="row">
                                 <div class="col">
@@ -351,9 +347,9 @@ include ('../controller/action.php');
                             </div>
                         </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" style="font-family:'Rancho', serif;">Close</button>
-                    <button type="submit" name="saveEvent" class="btn btn-primary" style="font-family:'Rancho', serif;">Add Event</button>
+                <div class="modal-footer" style="font-family:'Rancho', serif;">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+                    <button type="submit" name="saveEvent" class="btn btn-primary">Add Event</button>
                     </form>
                 </div>
             </div>

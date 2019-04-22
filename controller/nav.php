@@ -10,7 +10,7 @@ echo '
 
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="client_page.php" style="font-family:\'Rancho\', serif;"> <i style="color:yellow;" class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="client_page.php" style="font-family:\'Rancho\', serif;"><i style="color:yellow;" class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a>
             </li>';
 
 
@@ -20,7 +20,7 @@ if ($showItems == 1) {
             if($userRole == 1) {
                 if ($showItems == 1) {
                     echo '<li class="nav-item">
-                    <a class="nav-link" href="events.php" style="font-family:\'Rancho\', serif;"><i style="color:pink;class="fas fa-arrow-circle-right"></i>Admin Portal</a>
+                    <a class="nav-link" href="../client/events.php" style="font-family:\'Rancho\', serif;"><i style="color:yellow;" class="fas fa-arrow-circle-right"></i>Admin Portal</a>
                     </li>';
                 }
             }
