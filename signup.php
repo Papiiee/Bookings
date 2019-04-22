@@ -52,7 +52,7 @@ $connect = $database->connection();
 
                     } else {
 
-                        $query = "INSERT into users(full_name, email, password, roles_id) VALUES(?, ?, ?, ?)";
+                        $query = "INSERT into users(full_name, email, password, role_id) VALUES(?, ?, ?, ?)";
                         $statement = $connect->prepare($query);
                         $statement->bind_param('sssi', $fullname, $email, $password, $role);
 

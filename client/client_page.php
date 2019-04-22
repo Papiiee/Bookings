@@ -104,122 +104,54 @@ $showEdit = 0;
                 </div>
             </div>
     </body>
-    <footer class="page-footer font-small mdb-color lighten-3 pt-4">
+    <footer class="page-footer font-small blue-grey lighten-5">
 
+        <div style="background-color: #ffffff;">
+            <div class="container">
+                <div class="row py-4 d-flex align-items-center">
+                    <div class="col-md-6 col-lg-7 text-center text-md-right">
+                        <div style="font-family:'Rancho', serif;">Follow us on the following Social Networks</div>
+                        <!-- Facebook -->
+                        <a class="fb-ic">
+                            <i class="fab fa-facebook-f white-text mr-4"> </i>
+                        </a>
+                        <!-- Twitter -->
+                        <a class="tw-ic">
+                            <i class="fab fa-twitter white-text mr-4"> </i>
+                        </a>
+                        <!-- Google +-->
+                        <a class="gplus-ic">
+                            <i class="fab fa-google-plus-g white-text mr-4"> </i>
+                        </a>
+                        <!--Linkedin -->
+                        <a class="li-ic">
+                            <i class="fab fa-linkedin-in white-text mr-4"> </i>
+                        </a>
+                        <!--Instagram-->
+                        <a class="ins-ic">
+                            <i class="fab fa-instagram white-text"> </i>
+                        </a>
 
-        <div class="container text-center text-md-left">
+                    </div>
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
 
+                        <h6 class="text-uppercase font-weight-bold" style="font-family:'Rancho', serif;">Contact Us </h6>
+                        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <p style="font-family:'Rancho', serif;">
+                            <i class="fas fa-home mr-3"></i>Nairobi,Kenya</p>
+                        <p style="font-family:'Rancho', serif;">
+                            <i class="fas fa-envelope mr-3"></i> churchill@gmail.com</p>
+                        <p style="font-family:'Rancho', serif;">
+                            <i class="fas fa-phone mr-3"></i> + 254-720-234-555</p>
+                        <p style="font-family:'Rancho', serif;">
+                            <i class="fas fa-print mr-3"></i> + 254-723-456-089</p>
 
-            <div class="row">
-
-
-                <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
-
-
-                    <h5 class="font-weight-bold text-uppercase mb-4">Footer Content</h5>
-                    <p>Here you can use rows and columns here to organize your footer content.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit amet numquam iure provident voluptate esse
-                        quasi, veritatis totam voluptas nostrum.</p>
-
+                    </div>
                 </div>
-
-
-                <hr class="clearfix w-100 d-md-none">
-
-                <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
-
-
-                    <h5 class="font-weight-bold text-uppercase mb-4">About</h5>
-
-                    <ul class="list-unstyled">
-                        <li>
-                            <p>
-                                <a href="#!">PROJECTS</a>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <a href="#!">ABOUT US</a>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <a href="#!">BLOG</a>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <a href="#!">AWARDS</a>
-                            </p>
-                        </li>
-                    </ul>
-
-                </div>
-                <hr class="clearfix w-100 d-md-none">
-
-
-                <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
-
-
-                    <h5 class="font-weight-bold text-uppercase mb-4">Address</h5>
-
-                    <ul class="list-unstyled">
-                        <li>
-                            <p>
-                                <i class="fas fa-home mr-3"></i> NAIROBI, NB +254, KE</p>
-                        </li>
-                        <li>
-                            <p>
-                                <i class="fas fa-envelope mr-3"></i> greystone@gmail.com</p>
-                        </li>
-                        <li>
-                            <p>
-                                <i class="fas fa-phone mr-3"></i> + 254 789 1231</p>
-                        </li>
-                        <li>
-                            <p>
-                                <i class="fas fa-print mr-3"></i> + 254 234 5672</p>
-                        </li>
-                    </ul>
-
-                </div>
-                <hr class="clearfix w-100 d-md-none">
-
-
-                <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
-
-
-                    <h5 class="font-weight-bold text-uppercase mb-4">Follow Us</h5>
-
-
-                    <a type="button" class="btn-floating btn-fb">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-
-                    <a type="button" class="btn-floating btn-tw">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-
-                    <a type="button" class="btn-floating btn-gplus">
-                        <i class="fab fa-google-plus-g"></i>
-                    </a>
-
-                    <a type="button" class="btn-floating btn-dribbble">
-                        <i class="fab fa-dribbble"></i>
-                    </a>
-
-                </div>
-
+            </div>
+            <div class="footer-copyright text-center text-black-50 py-3" style="font-family:'Rancho', serif;"> © Laugh Industry Copyright
 
             </div>
-
-
         </div>
-        <div class="footer-copyright text-center py-3">© 2018 Copyright:
-            <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
-        </div>
-
-
     </footer>
-
     </html>

@@ -9,9 +9,9 @@ echo '<div class="col-sm-4" style="margin-bottom: 30px;">
                     
                     </div>
                     
-                    <h5 class="card-title"><strong>'.$name.'</strong></h5>
+                    <h5 class="card-title" style="font-family:\'Rancho\', serif;"><strong>'.$name.'</strong></h5>
                     
-                    <p class="card-text"><small><strong>TOTAL TICKETS:</strong> '.$number.'</small></p>';
+                    <p class="card-text" style="font-family:\'Rancho\', serif;"><small><strong>TOTAL TICKETS:</strong> '.$number.'</small></p>';
 
 if($userRole == 1) {
     echo '
@@ -31,7 +31,7 @@ if($userRole == 1) {
 }
 
 
-echo '<a href="#" data-toggle="modal" data-target="#ticket'.$id.'" class="btn btn-outline-success float-right"><i class="fa fa-plus"></i> Reserve Ticket</a>
+echo '<a href="#" data-toggle="modal" data-target="#ticket'.$id.'" class="btn btn-outline-success float-right"><i class="fas fa-ticket-alt"  style="font-family:\'Rancho\', serif;"></i> Reserve Ticket</a>
                 
                 </div>
                 
@@ -41,21 +41,21 @@ echo '<a href="#" data-toggle="modal" data-target="#ticket'.$id.'" class="btn bt
         
         
         
-<!-- DELETE Modal -->
+<!-- Delete Modal -->
 <div class="modal fade" id="delete'.$id.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-trash"></i> DELETE '.$name.'</h5>
+        <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-trash"  style="font-family:\'Rancho\', serif;"></i> DELETE '.$name.'</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body"  style="font-family:\'Rancho\', serif;">
         Are you sure you want to <strong>DELETE</strong> this event?<br>
         Users will not be able to reserve tickets when deleted.
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer" style="font-family:\'Rancho\', serif;">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <form method="POST">
         <input type="hidden" value="'.$id.'" name="deleteId"/>
@@ -67,88 +67,79 @@ echo '<a href="#" data-toggle="modal" data-target="#ticket'.$id.'" class="btn bt
 </div>
 
 
-<!-- UN DELETE Modal -->
+<!-- Un Delete Modal -->
 <div class="modal fade" id="unDelete'.$id.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-eye"></i> UN DELETE '.$name.'</h5>
+        <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-eye"  style="font-family:\'Rancho\', serif;"></i> UN DELETE '.$name.'</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body"  style="font-family:\'Rancho\', serif;">
         You are about to <strong>UNDELETE</strong> this event.<br/>
         Users will be able to reserve it if there are available tickets.
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <div class="modal-footer" style="font-family:\'Rancho\', serif;">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
         <form method="POST">
         <input type="hidden" value="'.$id.'" name="deleteId"/>
-        <button type="submit" name="unDelete" class="btn btn-success">UN Delete Event</button>
+        <button type="submit" name="unDelete" class="btn btn-success" >Undelete Event</button>
         </form>
       </div>
     </div>
   </div>
 </div>';
 
-//RESERVE TICKET
-echo'<div class="modal fade" id="ticket'.$id.'" tabindex="-1" role="dialog">
+
+//Reserve Tickets
+echo'<div class="modal fade" id="ticket'.$id.'" tabindex="-1"  role="dialog" >
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" style="font-family: "Rancho", serif;"><i class="fa fa-list"></i> Book Ticket for '.$name.'</h5>
+            <div class="modal-header"  style="font-family:\'Rancho\', serif;">
+                <h5 class="modal-title"><i class="fas fa-ticket-alt" ></i> Book Ticket for '.$name.'</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-                <div class="modal-body">
-                
-                
-                
-                
-             
+                <div class="modal-body"  style="font-family:\'Rancho\', serif;">
                     <div class="form-group">
-                        <label for="formGroupExampleInput"style="font-family:"Rancho", serif;">No of VIP Tickets <span style="border-radius:4px;color:#ffffff;background-color: green;padding: 5px;">'.$event['vip_price'].'/= per Ticket</span></label>
-                        <select class="custom-select" required id="numberOfTickets">
-                            <option selected>Select Amount</option>
-                            <option value="1" style="font-family: "Nanum Myeongjo", serif;">1</option>
-                            <option value="2" style="font-family: "Nanum Myeongjo", serif;">2</option>
-                            <option value="3" style="font-family: "Nanum Myeongjo", serif;">3</option>
-                            <option value="4" style="font-family: "Nanum Myeongjo", serif;">4</option>
-                            <option value="5" style="font-family: "Nanum Myeongjo", serif;">5</option>
+                    <form method="POST">
+                        <label for="formGroupExampleInput">Number of VIP Tickets <span style="border-radius:4px;color:#ffffff;background-color: green;padding: 5px;">'.$event['vip_price'].'/= per Ticket</span></label>
+                        <select class="custom-select" type="number" required name="numberOfVip">
+                            <option selected>Select number</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
                         </select>
                     </div>
                     
                      <div class="form-group">
-                        <label for="formGroupExampleInput"style="font-family:"Rancho", serif;">No of Regular Tickets <span style="border-radius:4px;color:#ffffff;background-color: green;padding: 5px;">'.$event['regular_price'].'/= per Ticket</span></label>
-                        <select class="custom-select" required id="numberOfTickets">
-                            <option selected>Select Amount</option>
-                            <option value="1" style="font-family: "Nanum Myeongjo", serif;">1</option>
-                            <option value="2" style="font-family: "Nanum Myeongjo", serif;">2</option>
-                            <option value="3" style="font-family: "Nanum Myeongjo", serif;">3</option>
-                            <option value="4" style="font-family: "Nanum Myeongjo", serif;">4</option>
-                            <option value="5" style="font-family: "Nanum Myeongjo", serif;">5</option>
+                        <label for="formGroupExampleInput">Number of Regular Tickets <form style="border-radius:4px;color:#ffffff;background-color: green;padding: 5px;">'.$event['regular_price'].'/= per Ticket</label>
+                        <select class="custom-select" type="number"required name="numberOfRegular">
+                            <option selected>Select number</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
                         </select>
+                     </form>
                     </div>
-                    
-                    
-                    
-                    
-               
-                    
                 </div>
-           
-            <div class="modal-footer">
-                <span id="response"></span>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal"style="font-family:"Rancho", serif;">Close</button>
-                <button type="submit" onclick="events();" class="btn btn-primary"style="font-family:"Rancho", serif;">Done</button>
+            <div class="modal-footer"  style="font-family:\'Rancho\', serif;">
+                <span id="event_response"></span>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" onclick="events();" name="reserveTicket" class="btn btn-primary">Done</button>
             </div>
         </div>
     </div>
 </div>';
 
-//EDIT Events
+//Edit Events
 echo'<div class="modal fade" id="edit'.$id.'" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -162,13 +153,11 @@ echo'<div class="modal fade" id="edit'.$id.'" tabindex="-1" role="dialog">
 
                     <form enctype="multipart/form-data" method="POST">
                         <div class="form-group">
-                            <label for="formGroupExampleInput" style="font-family:"Rancho", serif;">Event Name</label>
+                            <label for="formGroupExampleInput">Event Name</label>
                             <input type="text" class="form-control" required name="eventName" value="'.$name.'" placeholder="Event Name">
                         </div>
-
                         <div class="form-group">
-                            <label for="formGroupExampleInput" style="font-family:"Rancho", serif;">Tickets Available</label>
-
+                            <label for="formGroupExampleInput">Tickets Available</label>
                             <div class="row">
                                 <div class="col">
                                     <input type="number" value="'.$event['vip_tickets'].'" min="1" class="form-control" name="vipTickets" placeholder="VIP Tickets">
@@ -178,11 +167,8 @@ echo'<div class="modal fade" id="edit'.$id.'" tabindex="-1" role="dialog">
                                 </div>
                             </div>
                         </div>
-
-
                         <div class="form-group">
-                            <label for="formGroupExampleInput" style="font-family:"Rancho", serif;">Ticket Price</label>
-
+                            <label for="formGroupExampleInput">Ticket Price</label>
                             <div class="row">
                                 <div class="col">
                                     <input type="number" min="1" class="form-control" value="'.$event['vip_price'].'" name="vipPrice" placeholder="VIP Price">
@@ -191,10 +177,7 @@ echo'<div class="modal fade" id="edit'.$id.'" tabindex="-1" role="dialog">
                                     <input type="number" min="1" class="form-control" name="regularPrice" value="'.$event['regular_price'].'" placeholder="Regular Price">
                                 </div>
                             </div>
-
                         </div>
-
-
                         <div class="input-group mb-3">
                             <div class="custom-file">
                             <input type="hidden" name="updateID" value="'.$id.'"/>
@@ -202,11 +185,10 @@ echo'<div class="modal fade" id="edit'.$id.'" tabindex="-1" role="dialog">
                                 <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02" style="font-family:"Rancho", serif;">Event Banner</label>
                             </div>
                         </div>
-
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" style="font-family:"Rancho", serif;">Close</button>
-                    <button type="submit" name="updateEvent" class="btn btn-success" style="font-family:"Rancho", serif;">Update Event</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" name="updateEvent" class="btn btn-success">Update Event</button>
                     </form>
                 </div>
             </div>

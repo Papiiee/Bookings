@@ -12,10 +12,10 @@ while ($row = $results->fetch_object()) {
     $userName = $row->full_name;
     $userEmail = $row->email;
     $userPassword=$row->password;
-    $userRole = $row->roles_id;
+    $userRole = $row->role_id;
     $userID = $row->id;
 
 
 }
 
-$sliders = $connect->query("SELECT * FROM events");
+$cards = $connect->query("SELECT * FROM events");

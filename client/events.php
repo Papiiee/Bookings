@@ -204,6 +204,51 @@ if(isset($_POST['updateEvent'])) {
     }
 
 }
+
+//about the booking
+if(isset($_POST['reserveTicket'])) {
+
+$vip_no = $_POST['numberOfVip'];
+
+$regular_no = $_POST['numberOfRegular'];
+
+// Validate booking form
+$vip_no= trim(strip_tags($_POST["Number of VIP tickets"]));
+
+$regular_no = trim(strip_tags($_POST["Number of Regular tickets"]));
+
+if (empty($vip_no) || empty($regular_no)) {
+
+    $error = "Please select the number of tickets";
+    echo "<div style='position:absolute;left:15px;bottom:15px;border-radius:3px;color: #ffffff;background-color: red;padding:6px;'>" . $error . "</div>";
+
+} else if
+(($vip_no && $regular_no) > 5) {
+
+    $error = "You're limited to booking only 5 tickets";
+    echo "<div style='position:absolute;left:15px;bottom:15px;border-radius:3px;color: #ffffff;background-color: red;padding:6px;'>" . $error . "</div>";
+} else {
+
+    $query = "INSERT into reservations(event_id, user_id, vip_type, regular_type,total_price ) VALUES(?, ?, ?, ?, ?)";
+
+    $statement = $connect->prepare($query);
+
+    $statement->bind_param('iiiii', $event, $user_id, $vip_no, $regular_no,$total_price);
+
+    if ($statement->execute()) {
+
+        echo '<div style="position:absolute;left:15px;bottom:15px;border-radius:3px;color: #ffffff;background-color: green;padding:6px;">Ticket successfully reserved </div>';
+
+    } else {
+
+        $error = "There was a problem ";
+        echo "<div style='position:absolute;left:15px;bottom:15px;border-radius:3px;color: #ffffff;background-color: red;padding:6px;'>" . $error . "</div>";
+
+    }
+}
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -228,7 +273,7 @@ if(isset($_POST['updateEvent'])) {
     <div class="row">
         <?php
 
-        foreach ($sliders as $key => $event) {
+        foreach ($cards as $key => $event) {
 
             $name = $event['event_name'];
 
@@ -244,7 +289,7 @@ if(isset($_POST['updateEvent'])) {
 
                 include ('../controller/action.php');
 
-     } else if($userRole == 2 && $status != NULL) {
+     } else if($userRole == 2 && $status == NULL) {
 
 include ('../controller/action.php');
 
@@ -256,10 +301,6 @@ include ('../controller/action.php');
 }
 ?>
  </div>
-
-
-
-
 
     <!--modal for adding events -->
 
@@ -273,9 +314,8 @@ include ('../controller/action.php');
                     </button>
                 </div>
                 <div class="modal-body">
-
                     <form enctype="multipart/form-data" method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-                        <div class="form-group">
+                            <div class="form-group">
                             <label for="formGroupExampleInput" style="font-family:'Rancho', serif;">Event Name</label>
                             <input type="text" class="form-control" required name="eventName" placeholder="Event Name">
                         </div>
@@ -292,8 +332,6 @@ include ('../controller/action.php');
                                 </div>
                             </div>
                         </div>
-
-
                         <div class="form-group">
                             <label for="formGroupExampleInput" style="font-family:'Rancho', serif;">Ticket Price</label>
 
@@ -305,17 +343,13 @@ include ('../controller/action.php');
                                     <input type="number" min="1" class="form-control" name="regularPrice" placeholder="Regular Price">
                                 </div>
                             </div>
-
                         </div>
-
-
                         <div class="input-group mb-3">
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" required name="images">
                                 <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02" style="font-family:'Rancho', serif;">Event Banner</label>
                             </div>
                         </div>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" style="font-family:'Rancho', serif;">Close</button>
