@@ -10,17 +10,17 @@ function register() {
     $("#response").html('');
 
     //Validation of Inputs
-    if (fullname == '') {
+    if (fullname === '') {
 
         $("#response").html('<div style="position:absolute;left:15px;bottom:15px;border-radius:3px;color: #ffffff;background-color: red;padding:6px;">Fullname is Required</div>');
         $("#fullname").focus();
 
-    } else if (email == '') {
+    } else if (email === '') {
 
         $("#response").html('<div style="position:absolute;left:15px;bottom:15px;border-radius:3px;color: #ffffff;background-color: red;padding:6px;">Email is Required</div>');
         $("#email").focus();
 
-    } else if (password == '') {
+    } else if (password === '') {
 
         $("#response").html('<div style="position:absolute;left:15px;bottom:15px;border-radius:3px;color: #ffffff;background-color: red;padding:6px;">Password is Required</div>');
         $("#password").focus();
@@ -30,7 +30,7 @@ function register() {
         $("#response").html('<div style="position:absolute;left:15px;bottom:15px;border-radius:3px;color: #ffffff;background-color: red;padding:6px;">Must be more than 5 Characters</div>');
         $("#password").focus();
 
-    } else if (repeat == '') {
+    } else if (repeat === '') {
 
         $("#response").html('<div style="position:absolute;left:15px;bottom:15px;border-radius:3px;color: #ffffff;background-color: red;padding:6px;">Please Confirm Password</div>');
         $("#repeat_password").focus();
@@ -40,15 +40,13 @@ function register() {
         $("#response").html('<div style="position:absolute;left:15px;bottom:15px;border-radius:3px;color: #ffffff;background-color: red;padding:6px;">Passwords Dont Match</div>');
         $("#repeat_password").focus();
 
-
     } else {
 
         var dataString = "fullname=" + fullname + "&email=" + email + "&password=" + password + "&repeat=" + repeat;
 
-
         $.ajax({
             type: "POST",
-            url: "signup.php",
+            url: "/signup.php",
             data: dataString,
             cache: false,
 
@@ -73,6 +71,10 @@ function register() {
                     $("#response").hide().fadeIn('fast').html(response);
 
                 }
+            },
+
+            error: function () {
+                alert("Error!!!");
             }
 
         });

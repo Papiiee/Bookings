@@ -21,7 +21,7 @@ if(isset($_SESSION['user'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Bad+Script|Cormorant+Garamond|Rancho|Fredericka+the+Great|Handlee|Homemade+Apple|Philosopher|Playfair+Display+SC|Reenie+Beanie|Unna|Zilla+Slab" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bad+Script|Amiri|Cormorant+Garamond|Rancho|Fredericka+the+Great|Handlee|Homemade+Apple|Philosopher|Playfair+Display+SC|Reenie+Beanie|Unna|Zilla+Slab" rel="stylesheet">
 </head>
 
 <body>
@@ -51,7 +51,7 @@ if(isset($_SESSION['user'])) {
 
 
 <!-- Modal -->
-<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="font-family: 'Amiri', serif;">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -62,23 +62,25 @@ if(isset($_SESSION['user'])) {
             </div>
             <div class="modal-body">
                 <div>
-                    <div class="form-group">
-                        <label for="formGroupExampleInput">Fullname</label>
-                        <input type="text" class="form-control" required id="fullname" placeholder="Fullname">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" required id="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" id="password" class="form-control" required placeholder="Password">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Confirm Password</label>
-                        <input type="password" required id="repeat_password" class="form-control" placeholder="Password">
-                    </div>
+                    <form id="signupform">
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Fullname</label>
+                            <input type="text" class="form-control" required id="fullname" placeholder="Fullname">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" required id="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" id="password" class="form-control" required placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Confirm Password</label>
+                            <input type="password" required id="repeat_password" class="form-control" placeholder="Password">
+                        </div>
+                    </form>
                 </div>
 
             </div>
@@ -138,7 +140,7 @@ if(isset($_SESSION['user'])) {
 //}
 ?>
 
-<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="font-family: 'Amiri', serif;">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -218,7 +220,7 @@ if(isset($_SESSION['user'])) {
         <div class="col-md-6 col-sm-12" style="padding: 40px;">
             <div class="" style="width:100%;height: 400px;margin:1px;background-repeat:no-repeat;-webkit-border-radius: 45px;-moz-border-radius: 45px;border-radius: 45px;background-size: cover;background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('./images/coast.jpg');">
                 <br><br><br><br/><b><h3 style="font-family: 'Cormorant Garamond', serif;color:white;float:left;"> May 28th,2019</h3></b>
-                <br/><br/><b><h2 style="font-family: 'Cormorant Garamond', serif;color: white;float:left;">Malindi</h2></b>
+                <br/><br/><b><h2 style="font-family: 'Cormorant Garamond', serif;color: white;float:left;">Mombasa</h2></b>
                 <br/><br/><br/><b><h4 style="font-family: 'Cormorant Garamond', serif;color: white;float:left;"> Night Concert </h4></b>
             </div>
         </div>

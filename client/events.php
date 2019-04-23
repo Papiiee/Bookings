@@ -10,16 +10,15 @@ $showItems = 0;
 
 $showEdit = 1;
 
-
 include_once '../controller/controller.php';
 
-if(!isset($_SESSION['user'])) {
+if (!isset($_SESSION['user'])) {
 
     header('Location: /');
 
 }
 
-if(isset($_POST['removeEvent'])) {
+if (isset($_POST['removeEvent'])) {
 
     $removeID = $_POST['deleteId'];
 
@@ -31,9 +30,9 @@ if(isset($_POST['removeEvent'])) {
 
     $statement = $deleteRecord->execute();
 
-    if($statement) {
+    if ($statement) {
 
-       header('Location: events.php');
+        header('Location: events.php');
 
     } else {
 
@@ -42,7 +41,7 @@ if(isset($_POST['removeEvent'])) {
 
 }
 
-if(isset($_POST['unDelete'])) {
+if (isset($_POST['unDelete'])) {
 
     $removeID = $_POST['deleteId'];
 
@@ -54,7 +53,7 @@ if(isset($_POST['unDelete'])) {
 
     $statement = $deleteRecord->execute();
 
-    if($statement) {
+    if ($statement) {
 
         header('Location: events.php');
 
@@ -66,8 +65,7 @@ if(isset($_POST['unDelete'])) {
 }
 
 
-
-if(isset($_POST['saveEvent'])) {
+if (isset($_POST['saveEvent'])) {
 
     $eventname = $_POST['eventName'];
 
@@ -95,11 +93,11 @@ if(isset($_POST['saveEvent'])) {
 
     $file = $folder . basename($newName);
 
-    $fileType = strtolower(pathinfo($file,PATHINFO_EXTENSION));
+    $fileType = strtolower(pathinfo($file, PATHINFO_EXTENSION));
 
-    $extensions = array("jpg","JPG","jpeg","JPEG","png","PNG");
+    $extensions = array("jpg", "JPG", "jpeg", "JPEG", "png", "PNG");
 
-    if( in_array($fileType,$extensions) ) {
+    if (in_array($fileType, $extensions)) {
 
         $query = "INSERT into events(event_name, vip_tickets, regular_tickets, vip_price, regular_price, images) VALUES(?, ?, ?, ?, ?, ?)";
 
@@ -123,8 +121,7 @@ if(isset($_POST['saveEvent'])) {
 }
 
 
-
-if(isset($_POST['updateEvent'])) {
+if (isset($_POST['updateEvent'])) {
 
     $eventname = $_POST['eventName'];
 
@@ -141,7 +138,7 @@ if(isset($_POST['updateEvent'])) {
     $name = $_FILES['images']['name'];
 
 
-    if($name == '') {
+    if ($name == '') {
 
         $updateRecord = $connect->prepare("UPDATE events SET event_name=?, vip_tickets=?, regular_tickets=?, vip_price=?, regular_price=? WHERE id=?");
 
@@ -149,7 +146,7 @@ if(isset($_POST['updateEvent'])) {
 
         $statement = $updateRecord->execute();
 
-        if($statement) {
+        if ($statement) {
 
             header('Location: events.php');
 
@@ -181,14 +178,13 @@ if(isset($_POST['updateEvent'])) {
         if (in_array($fileType, $extensions)) {
 
 
-
             $updateRecord = $connect->prepare("UPDATE events SET event_name=?, vip_tickets=?, regular_tickets=?, vip_price=?, regular_price=?, images=? WHERE id=?");
 
             $updateRecord->bind_param('siiiisi', $eventname, $vipTickets, $regularTickets, $vipPrice, $regularPrice, $newName, $id);
 
             $statement = $updateRecord->execute();
 
-            if($statement) {
+            if ($statement) {
 
                 // Move Image to Folder
                 move_uploaded_file($_FILES['images']['tmp_name'], $folder . $newName);
@@ -200,52 +196,44 @@ if(isset($_POST['updateEvent'])) {
             }
 
         }
-
     }
-
 }
 
 //about the booking
-if(isset($_POST['reserveTicket'])) {
+if (isset($_POST['reserveTicket'])) {
 
-$vip_no = $_POST['numberOfVip'];
+    $vip_no = $_POST['numberOfVip'];
 
-$regular_no = $_POST['numberOfRegular'];
+    $regular_no = $_POST['numberOfRegular'];
 
-// Validate booking form
-$vip_no= trim(strip_tags($_POST["Number of VIP tickets"]));
+    // Validate booking form
+    $vip_no = trim(strip_tags($_POST["numberOfVip"]));
 
-$regular_no = trim(strip_tags($_POST["Number of Regular tickets"]));
+    $regular_no = trim(strip_tags($_POST["numberOfRegular"]));
 
-if (empty($vip_no) || empty($regular_no)) {
+    if (((int)$vip_no + (int)$regular_no) > 5) {
 
-    $error = "Please select the number of tickets";
-    echo "<div style='position:absolute;left:15px;bottom:15px;border-radius:3px;color: #ffffff;background-color: red;padding:6px;'>" . $error . "</div>";
-
-} else if
-(($vip_no && $regular_no) > 5) {
-
-    $error = "You're limited to booking only 5 tickets";
-    echo "<div style='position:absolute;left:15px;bottom:15px;border-radius:3px;color: #ffffff;background-color: red;padding:6px;'>" . $error . "</div>";
-} else {
-
-    $query = "INSERT into reservations(event_id, user_id, vip_type, regular_type,total_price ) VALUES(?, ?, ?, ?, ?)";
-
-    $statement = $connect->prepare($query);
-
-    $statement->bind_param('iiiii', $event, $user_id, $vip_no, $regular_no,$total_price);
-
-    if ($statement->execute()) {
-
-        echo '<div style="position:absolute;left:15px;bottom:15px;border-radius:3px;color: #ffffff;background-color: green;padding:6px;">Ticket successfully reserved </div>';
-
+        $error = "You're limited to booking only 5 tickets";
+        echo "<div style='position:absolute;left:15px;bottom:15px;border-radius:3px;color: #ffffff;background-color: red;padding:6px;'>" . $error . "</div>";
     } else {
 
-        $error = "There was a problem ";
-        echo "<div style='position:absolute;left:15px;bottom:15px;border-radius:3px;color: #ffffff;background-color: red;padding:6px;'>" . $error . "</div>";
+        $query = "INSERT into reservations(event_id, user_id, vip_type, regular_type,total_price ) VALUES(?, ?, ?, ?, ?)";
 
+        $statement = $connect->prepare($query);
+
+        $statement->bind_param('iiiii', $event, $user_id, $vip_no, $regular_no, $total_price);
+
+        if ($statement->execute()) {
+
+            echo '<div style="position:absolute;left:15px;bottom:15px;border-radius:3px;color: #ffffff;background-color: green;padding:6px;">Ticket successfully reserved </div>';
+
+        } else {
+
+            $error = "There was a problem ";
+            echo "<div style='position:absolute;left:15px;bottom:15px;border-radius:3px;color: #ffffff;background-color: red;padding:6px;'>" . $error . "</div>";
+
+        }
     }
-}
 }
 
 
@@ -256,15 +244,21 @@ if (empty($vip_no) || empty($regular_no)) {
 
 <head>
     <link rel="stylesheet" href="../css/bootstrap.min.css"/>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Bad+Script|Dancing+Script|Indie+Flower|Nanum+Myeongjo|Pacifico|Cormorant+Garamond|Rancho|Fredericka+the+Great|Handlee|Homemade+Apple|Philosopher|Playfair+Display+SC|Reenie+Beanie|Unna|Zilla+Slab" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Bad+Script|Amiri|Dancing+Script|Indie+Flower|Nanum+Myeongjo|Pacifico|Cormorant+Garamond|Rancho|Fredericka+the+Great|Handlee|Homemade+Apple|Philosopher|Playfair+Display+SC|Reenie+Beanie|Unna|Zilla+Slab"
+          rel="stylesheet">
 </head>
 <body>
 
-<?php include_once ('../controller/nav.php') ?>
+<?php include_once('../controller/nav.php') ?>
 
 <div class="container">
     <br/>
@@ -285,22 +279,22 @@ if (empty($vip_no) || empty($regular_no)) {
 
             $status = $event['deleted_at'];
 
-            if($userRole == 1) {
+            if ($userRole == 1) {
 
-                include ('../controller/action.php');
+                include('../controller/action.php');
 
-     } else if($userRole == 2 && $status == NULL) {
+            } else if ($userRole == 2 && $status == NULL) {
 
-include ('../controller/action.php');
+                include('../controller/action.php');
 
- }
-}
-?>
- </div>
+            }
+        }
+        ?>
+    </div>
 
     <!--modal for adding events -->
 
-    <div class="modal fade" id="admin" tabindex="-1" role="dialog">
+    <div class="modal fade" id="admin" tabindex="-1" role="dialog" style="font-family: 'Amiri', serif;">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -311,50 +305,57 @@ include ('../controller/action.php');
                 </div>
                 <div class="modal-body" style="font-family:'Rancho', serif;">
                     <form enctype="multipart/form-data" method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-                            <div class="form-group">
+                        <div class="form-group">
                             <label for="formGroupExampleInput">Event Name</label>
                             <input type="text" class="form-control" required name="eventName" placeholder="Event Name">
                         </div>
-
                         <div class="form-group">
                             <label for="formGroupExampleInput">Tickets Available</label>
 
                             <div class="row">
                                 <div class="col">
-                                    <input type="number" min="1" class="form-control" name="vipTickets" placeholder="VIP Tickets">
+                                    <input type="number" min="1" class="form-control" name="vipTickets"
+                                           placeholder="VIP Tickets">
                                 </div>
                                 <div class="col">
-                                    <input type="number" min="1" class="form-control" name="regularTickets" placeholder="Regular Tickets">
+                                    <input type="number" min="1" class="form-control" name="regularTickets"
+                                           placeholder="Regular Tickets">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="formGroupExampleInput" s>Ticket Price</label>
+                            <label for="formGroupExampleInput">Ticket Price</label>
 
                             <div class="row">
                                 <div class="col">
-                                    <input type="number" min="1" class="form-control" name="vipPrice" placeholder="VIP Price">
+                                    <input type="number" min="1" class="form-control" name="vipPrice"
+                                           placeholder="VIP Price">
                                 </div>
                                 <div class="col">
-                                    <input type="number" min="1" class="form-control" name="regularPrice" placeholder="Regular Price">
+                                    <input type="number" min="1" class="form-control" name="regularPrice"
+                                           placeholder="Regular Price">
                                 </div>
                             </div>
                         </div>
                         <div class="input-group mb-3">
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" required name="images">
-                                <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02" style="font-family:'Rancho', serif;">Event Banner</label>
+                                <label class="custom-file-label" for="inputGroupFile02"
+                                       aria-describedby="inputGroupFileAddon02" style="font-family:'Rancho', serif;">Event
+                                    Banner</label>
                             </div>
                         </div>
                 </div>
-                <div class="modal-footer" style="font-family:'Rancho', serif;">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" name="saveEvent" class="btn btn-primary">Add Event</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="../js/events.js" type="text/javascript"></script>
 
 </body>
 </html>
