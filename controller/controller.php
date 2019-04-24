@@ -15,7 +15,6 @@ while ($row = $results->fetch_object()) {
     $userRole = $row->role_id;
     $userID = $row->id;
 
-
 }
 
 $cards = $connect->query("SELECT * FROM events");

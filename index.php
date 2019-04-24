@@ -7,8 +7,6 @@ if(isset($_SESSION['user'])) {
     header('Location: client/client_page.php');
 
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +48,7 @@ if(isset($_SESSION['user'])) {
 </nav>
 
 
-<!-- Modal -->
+<!-- register -->
 <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="font-family: 'Amiri', serif;">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -85,61 +83,15 @@ if(isset($_SESSION['user'])) {
 
             </div>
             <div class="modal-footer">
-
                         <span id="response"></span>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" onclick="register();"  class="btn btn-success">Sign up &rarr;</button>
-
             </div>
         </div>
     </div>
 </div>
 
-
-<?php
-
-//require_once 'auth/auth.php';
-//
-//$signedin_user = new Authentications();
-//if ($signedin_user->is_signed_in()) {
-//    if ($_SESSION['roles_id'] == 1) {
-//        $signedin_user->redirect('../admin/admin_page.php');
-//    } else {
-//        $signedin_user->redirect('../client/client_page.php');
-//    }
-//}
-//$email = $password = "";
-//$roles_id = null;
-//$email_err = $password_err = $modal_err = "";
-//if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//    // Check if email and password are empty
-//    if (empty(trim($_POST["email"]))) {
-//        $email_err = "Kindly provide an email to proceed.";
-//    } else {
-//        $email = trim($_POST["email"]);
-//    }
-//    if (empty(trim($_POST["password"]))) {
-//        $password_err = "Kindly enter your password.";
-//    } else {
-//        $password = trim($_POST["password"]);
-//    }
-//    // Validate credentials on database
-//    if (empty($email_err) && empty($password_err)) {
-//        if ($signedin_user->signin($email, $password)) {
-//            if ($_SESSION['roles_id'] == 1) {
-//                // admin/ events manager
-//                $signedin_user->redirect('../admin/admin_page.php');
-//            } elseif ($_SESSION['roles_id'] == 2) {
-//                // client
-//                $signedin_user->redirect('../client/client_page.php');
-//            }
-//        }else{
-//            $modal_err = "Please check your details are correct";
-//        }
-//    }
-//}
-?>
-
+<!-- login-->
 <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="font-family: 'Amiri', serif;">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -250,8 +202,6 @@ if(isset($_SESSION['user'])) {
     </div>
 
     <br/> <br/> <br/>
-
-
 
     <div class="container">
         <div class="row">

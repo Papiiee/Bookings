@@ -1,5 +1,7 @@
 function events(id) {
+
     //Collecting Form Inputs
+
     let number_of_vip_tickets = $("#numberOfVip").val();
 
     let number_of_regular_tickets = $("#numberOfRegular").val();
@@ -11,9 +13,6 @@ function events(id) {
     let vipPrice = $("#vipPrice").val();
 
     let regularPrice = $("#regularPrice").val();
-
-    //let reservation = $("#reserve").val();
-
 
     if (id == ticketID) {
 
@@ -57,7 +56,7 @@ function events(id) {
                         $("#activeUserID").val('');
                         $("#vipPrice").val('');
                         $("#regularPrice").val('');
-                        //$("#reserve").val();
+
                     } else {
 
                         $("#event_response").hide().fadeIn('fast').html(response);

@@ -101,7 +101,6 @@ echo '<a href="#" data-toggle="modal" data-target="#ticket' . $id . '" class="bt
 echo '<div class="modal fade" id="ticket' . $id . '" tabindex="-1"  role="dialog" >
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-        
             <div class="modal-header"  style="font-family: \'Amiri\', serif;">
                 <h5 class="modal-title"><i class="fas fa-ticket-alt" ></i> Book Ticket for ' . $name . '</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -164,7 +163,6 @@ echo '<div class="modal fade" id="edit' . $id . '" tabindex="-1" role="dialog" s
                     </button>
                 </div>
                 <div class="modal-body">
-
                     <form enctype="multipart/form-data" method="POST">
                         <div class="form-group">
                             <label for="formGroupExampleInput">Event Name</label>

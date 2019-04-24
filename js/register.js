@@ -1,10 +1,10 @@
 function register() {
 
     //Collecting Form Inputs
-    var fullname = $("#fullname").val();
-    var email = $("#email").val();
-    var password = $("#password").val();
-    var repeat = $("#repeat_password").val();
+    let fullname = $("#fullname").val();
+    let email = $("#email").val();
+    let password = $("#password").val();
+    let repeat = $("#repeat_password").val();
 
     //Response Section
     $("#response").html('');
