@@ -2,7 +2,9 @@
 session_start();
 
 require_once './connect/database.php';
+
 $database = new Database();
+
 $connect = $database->connection();
 
 
@@ -21,20 +23,23 @@ if (isset($_POST) and $_SERVER["REQUEST_METHOD"] == "POST") {
     $role = 2;
 
 
-    if (empty($fullname) || empty($email) || empty($password) || empty($repeat)) {
+    if (empty($fullname) || empty($email) || empty($password) || empty($password)) {
 
         $error = "Please fill in all the fields";
+
         echo "<div style='position:absolute;left:15px;bottom:15px;border-radius:3px;color: #ffffff;background-color: red;padding:6px;'>" . $error . "</div>";
 
     } else
         if (strlen($password) < 6) {
 
             $error = "Must have at least 6 characters.";
+
             echo "<div style='position:absolute;left:15px;bottom:15px;border-radius:3px;color: #ffffff;background-color: red;padding:6px;'>" . $error . "</div>";
 
         } else if ($password != $repeat) {
 
             $error = "Your passwords dont match";
+
             echo "<div style='position:absolute;left:15px;bottom:15px;border-radius:3px;color: #ffffff;background-color: red;padding:6px;'>" . $error . "</div>";
 
         } else {
@@ -44,16 +49,13 @@ if (isset($_POST) and $_SERVER["REQUEST_METHOD"] == "POST") {
 
             $count = $results->num_rows;
 
-            if ($count !== 0) {
 
-                $error = "Email Addresses Exist";
-
-                echo "<div style='position:absolute;left:15px;bottom:15px;border-radius:3px;color: #ffffff;background-color: red;padding:6px;'>" . $error . "</div>";
-
-            } else {
+            if ($count == 0) {
 
                 $query = "INSERT into users(full_name, email, password, role_id) VALUES(?, ?, ?, ?)";
+
                 $statement = $connect->prepare($query);
+
                 $statement->bind_param('sssi', $fullname, $email, $password, $role);
 
                 if ($statement->execute()) {
@@ -70,10 +72,19 @@ if (isset($_POST) and $_SERVER["REQUEST_METHOD"] == "POST") {
 
                 } else {
 
-                    $error = "Email Address Exist";
+                    $error = "There was a problem, try again!";
+
                     echo "<div style='position:absolute;left:15px;bottom:15px;border-radius:3px;color: #ffffff;background-color: red;padding:6px;'>" . $error . "</div>";
 
                 }
+
+
+            } else {
+
+                $error = "Email Addresses Exist";
+
+                echo "<div style='position:absolute;left:15px;bottom:15px;border-radius:3px;color: #ffffff;background-color: red;padding:6px;'>" . $error . "</div>";
+
             }
         }
 

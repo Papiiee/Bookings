@@ -38,6 +38,13 @@ echo '
         </ul>
         <div class="form-inline my-2 my-lg-0">
             <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+            <div class="nav-link">';
+
+             include_once ('../client/reserve.php');
+
+            echo '</div>
+            </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family:\'Rancho\', serif;">
                         '.$userName.'

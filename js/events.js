@@ -1,52 +1,72 @@
-//validating ticket booking modal
-function events()
-{
+function events(id) {
     //Collecting Form Inputs
     let number_of_vip_tickets = $("#numberOfVip").val();
 
     let number_of_regular_tickets = $("#numberOfRegular").val();
 
-    //Response Section
-    $("#event_response").html('');
+    let ticketID = $("#ticketID").val();
 
-    if (!number_of_vip_tickets || !number_of_regular_tickets) {
-        $("#event_response").html('<div style="position:absolute;left:15px;bottom:15px;border-radius:3px;color: #ffffff;background-color: red;padding:6px;">Kindly select as desired </div>');
-        $("#eventName").focus();
-    }
+    let activeUserID = $("#activeUserID").val();
 
-    if(number_of_vip_tickets || number_of_regular_tickets) {
+    let vipPrice = $("#vipPrice").val();
 
-        let dataString = "number_of_vip_tickets=" + number_of_vip_tickets + "&number_of_regular_tickets=" + number_of_regular_tickets;
+    let regularPrice = $("#regularPrice").val();
 
-        $.ajax({
-            type: "POST",
-            url: "/client/events.php",
-            data: dataString,
-            cache: false,
+    //let reservation = $("#reserve").val();
 
-            beforeSend: function () {
-                $("#event_response").html('');
-                $("#event_response").html('<div style="position:absolute;left:15px;bottom:15px;"><i class="fa fa-spinner fa-spin"></i> Please Wait</div>');
 
-            },
+    if (id == ticketID) {
 
-            success: function (response) {
 
-                var response_brought = response.indexOf('event_response');
+        // Response Section
+        $("#event_response").html('');
 
-                if (response_brought != -1) {
+        if (!number_of_vip_tickets && !number_of_regular_tickets) {
 
-                    $('#numberOfTickets').val('');
-                    $('#ticketPrice').val('');
+            $("#event_response").html('<div style="position:absolute;left:15px;bottom:15px;border-radius:3px;color: #ffffff;background-color: red;padding:6px;">Kindly select as desired </div>');
 
-                } else {
+            $("#eventName").focus();
 
-                    $("#event_response").hide().fadeIn('fast').html(response);
+        } else {
 
+            let dataString = "number_of_vip_tickets=" + number_of_vip_tickets + "&number_of_regular_tickets=" + number_of_regular_tickets + "&ticketID=" + ticketID + "&activeUserID=" + activeUserID + "&vipPrice=" + vipPrice + "&regularPrice=" + regularPrice;
+
+            $.ajax({
+                type: "POST",
+                url: "../client/reserve.php",
+                data: dataString,
+                cache: false,
+
+                beforeSend: function () {
+
+                    $("#event_response").html('');
+
+                    $("#event_response").html('<div style="position:absolute;left:15px;bottom:15px;"><i class="fa fa-spinner fa-spin"></i> Please Wait</div>');
+
+                },
+
+                success: function (response) {
+
+                    var response_brought = response.indexOf('event_response');
+
+                    if (response_brought != -1) {
+
+                        $('#numberOfTickets').val('');
+                        $('#ticketPrice').val('');
+                        $("#ticketID").val('');
+                        $("#activeUserID").val('');
+                        $("#vipPrice").val('');
+                        $("#regularPrice").val('');
+                        //$("#reserve").val();
+                    } else {
+
+                        $("#event_response").hide().fadeIn('fast').html(response);
+
+                    }
                 }
-            }
 
-        });
+            });
+        }
+
     }
-
 }

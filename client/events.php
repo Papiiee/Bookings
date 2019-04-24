@@ -77,6 +77,10 @@ if (isset($_POST['saveEvent'])) {
 
     $regularPrice = $_POST['regularPrice'];
 
+    $eventDate = $_POST['eventDate'];
+
+    $location = $_POST['location'];
+
     $name = $_FILES['images']['name'];
 
     $tempName = explode(".", $name);
@@ -99,11 +103,11 @@ if (isset($_POST['saveEvent'])) {
 
     if (in_array($fileType, $extensions)) {
 
-        $query = "INSERT into events(event_name, vip_tickets, regular_tickets, vip_price, regular_price, images) VALUES(?, ?, ?, ?, ?, ?)";
+        $query = "INSERT into events(event_name, vip_tickets, regular_tickets, vip_price, regular_price, event_date, location, images) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
 
         $statement = $connect->prepare($query);
 
-        $statement->bind_param('siiiis', $eventname, $vipTickets, $regularTickets, $vipPrice, $regularPrice, $newName);
+        $statement->bind_param('siiiisss', $eventname, $vipTickets, $regularTickets, $vipPrice, $regularPrice, $eventDate, $location, $newName);
 
         if ($statement->execute()) {
 
@@ -123,7 +127,7 @@ if (isset($_POST['saveEvent'])) {
 
 if (isset($_POST['updateEvent'])) {
 
-    $eventname = $_POST['eventName'];
+    $eventName = $_POST['eventName'];
 
     $vipTickets = $_POST['vipTickets'];
 
@@ -133,6 +137,10 @@ if (isset($_POST['updateEvent'])) {
 
     $regularPrice = $_POST['regularPrice'];
 
+    $eventDate =$_POST['eventDate'];
+
+    $location =$_POST['location'];
+
     $id = $_POST['updateID'];
 
     $name = $_FILES['images']['name'];
@@ -140,9 +148,9 @@ if (isset($_POST['updateEvent'])) {
 
     if ($name == '') {
 
-        $updateRecord = $connect->prepare("UPDATE events SET event_name=?, vip_tickets=?, regular_tickets=?, vip_price=?, regular_price=? WHERE id=?");
+        $updateRecord = $connect->prepare("UPDATE events SET event_name=?, vip_tickets=?, regular_tickets=?, vip_price=?, regular_price=?, event_date=?, location=? WHERE id=?");
 
-        $updateRecord->bind_param('siiiii', $eventname, $vipTickets, $regularTickets, $vipPrice, $regularPrice, $id);
+        $updateRecord->bind_param('siiiissi', $eventName, $vipTickets, $regularTickets, $vipPrice, $regularPrice, $eventDate, $location, $id);
 
         $statement = $updateRecord->execute();
 
@@ -178,9 +186,9 @@ if (isset($_POST['updateEvent'])) {
         if (in_array($fileType, $extensions)) {
 
 
-            $updateRecord = $connect->prepare("UPDATE events SET event_name=?, vip_tickets=?, regular_tickets=?, vip_price=?, regular_price=?, images=? WHERE id=?");
+            $updateRecord = $connect->prepare("UPDATE events SET event_name=?, vip_tickets=?, regular_tickets=?, vip_price=?, regular_price=?, event_date=?, location=?, images=? WHERE id=?");
 
-            $updateRecord->bind_param('siiiisi', $eventname, $vipTickets, $regularTickets, $vipPrice, $regularPrice, $newName, $id);
+            $updateRecord->bind_param('siiiisssi', $eventname, $vipTickets, $regularTickets, $vipPrice, $regularPrice, $eventdate, $location, $newName, $id);
 
             $statement = $updateRecord->execute();
 
@@ -199,44 +207,6 @@ if (isset($_POST['updateEvent'])) {
     }
 }
 
-//about the booking
-if (isset($_POST['reserveTicket'])) {
-
-    $vip_no = $_POST['numberOfVip'];
-
-    $regular_no = $_POST['numberOfRegular'];
-
-    // Validate booking form
-    $vip_no = trim(strip_tags($_POST["numberOfVip"]));
-
-    $regular_no = trim(strip_tags($_POST["numberOfRegular"]));
-
-    if (((int)$vip_no + (int)$regular_no) > 5) {
-
-        $error = "You're limited to booking only 5 tickets";
-        echo "<div style='position:absolute;left:15px;bottom:15px;border-radius:3px;color: #ffffff;background-color: red;padding:6px;'>" . $error . "</div>";
-    } else {
-
-        $query = "INSERT into reservations(event_id, user_id, vip_type, regular_type,total_price ) VALUES(?, ?, ?, ?, ?)";
-
-        $statement = $connect->prepare($query);
-
-        $statement->bind_param('iiiii', $event, $user_id, $vip_no, $regular_no, $total_price);
-
-        if ($statement->execute()) {
-
-            echo '<div style="position:absolute;left:15px;bottom:15px;border-radius:3px;color: #ffffff;background-color: green;padding:6px;">Ticket successfully reserved </div>';
-
-        } else {
-
-            $error = "There was a problem ";
-            echo "<div style='position:absolute;left:15px;bottom:15px;border-radius:3px;color: #ffffff;background-color: red;padding:6px;'>" . $error . "</div>";
-
-        }
-    }
-}
-
-
 ?>
 
 <!DOCTYPE html>
@@ -245,26 +215,22 @@ if (isset($_POST['reserveTicket'])) {
 <head>
     <link rel="stylesheet" href="../css/bootstrap.min.css"/>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Bad+Script|Amiri|Dancing+Script|Indie+Flower|Nanum+Myeongjo|Pacifico|Cormorant+Garamond|Rancho|Fredericka+the+Great|Handlee|Homemade+Apple|Philosopher|Playfair+Display+SC|Reenie+Beanie|Unna|Zilla+Slab"
-          rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Bad+Script|Amiri|Dancing+Script|Indie+Flower|Nanum+Myeongjo|Pacifico|Cormorant+Garamond|Rancho|Fredericka+the+Great|Handlee|Homemade+Apple|Philosopher|Playfair+Display+SC|Reenie+Beanie|Unna|Zilla+Slab" rel="stylesheet">
 </head>
 <body>
 
 <?php include_once('../controller/nav.php') ?>
+
 
 <div class="container">
     <br/>
     <h2 style="font-family:'Rancho', serif;"><i class="fa fa-list" style="color:yellow;"></i> Our Event Details</h2>
     <br>
     <div class="row">
+
         <?php
 
         foreach ($cards as $key => $event) {
@@ -276,6 +242,10 @@ if (isset($_POST['reserveTicket'])) {
             $id = $event['id'];
 
             $number = $event['vip_tickets'] + $event['regular_tickets'];
+
+            $eventdate = $event['event_date'];
+
+            $location = $event['location'];
 
             $status = $event['deleted_at'];
 
@@ -289,7 +259,9 @@ if (isset($_POST['reserveTicket'])) {
 
             }
         }
+
         ?>
+
     </div>
 
     <!--modal for adding events -->
@@ -307,19 +279,25 @@ if (isset($_POST['reserveTicket'])) {
                     <form enctype="multipart/form-data" method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>">
                         <div class="form-group">
                             <label for="formGroupExampleInput">Event Name</label>
-                            <input type="text" class="form-control" required name="eventName" placeholder="Event Name">
+                            <input type="text" class="form-control" required name="eventName" placeholder="event Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Date</label>
+                            <input type="date" class="form-control" required name="eventDate" placeholder="event Date">
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Location</label>
+                            <input type="text" class="form-control" required name="location" placeholder="location">
                         </div>
                         <div class="form-group">
                             <label for="formGroupExampleInput">Tickets Available</label>
 
                             <div class="row">
                                 <div class="col">
-                                    <input type="number" min="1" class="form-control" name="vipTickets"
-                                           placeholder="VIP Tickets">
+                                    <input type="number" min="1" class="form-control" name="vipTickets" placeholder="VIP Tickets">
                                 </div>
                                 <div class="col">
-                                    <input type="number" min="1" class="form-control" name="regularTickets"
-                                           placeholder="Regular Tickets">
+                                    <input type="number" min="1" class="form-control" name="regularTickets" placeholder="Regular Tickets">
                                 </div>
                             </div>
                         </div>
@@ -328,21 +306,17 @@ if (isset($_POST['reserveTicket'])) {
 
                             <div class="row">
                                 <div class="col">
-                                    <input type="number" min="1" class="form-control" name="vipPrice"
-                                           placeholder="VIP Price">
+                                    <input type="number" min="1" class="form-control" name="vipPrice" placeholder="VIP Price">
                                 </div>
                                 <div class="col">
-                                    <input type="number" min="1" class="form-control" name="regularPrice"
-                                           placeholder="Regular Price">
+                                    <input type="number" min="1" class="form-control" name="regularPrice" placeholder="Regular Price">
                                 </div>
                             </div>
                         </div>
                         <div class="input-group mb-3">
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" required name="images">
-                                <label class="custom-file-label" for="inputGroupFile02"
-                                       aria-describedby="inputGroupFileAddon02" style="font-family:'Rancho', serif;">Event
-                                    Banner</label>
+                                <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02" style="font-family:'Rancho', serif;">Event Banner</label>
                             </div>
                         </div>
                 </div>

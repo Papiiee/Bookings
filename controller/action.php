@@ -11,6 +11,10 @@ echo '<div class="col-sm-4" style="margin-bottom: 30px;font-family: \'Amiri\', s
                     
                     <h5 class="card-title"><strong>' . $name . '</strong></h5>
                     
+                    <p class="card-text"><small><i class="fas fa-clock"></i><strong>DATE: </strong>'. $eventdate .'</small></p>
+                    
+                    <p class="card-text"><small><i class="fas fa-map-marker-alt"></i><strong>LOCATION: </strong>'. $location .'</small></p>
+                    
                     <p class="card-text"><small><strong>TOTAL TICKETS:</strong> ' . $number . '</small></p>';
 
 if ($userRole == 1) {
@@ -105,7 +109,7 @@ echo '<div class="modal fade" id="ticket' . $id . '" tabindex="-1"  role="dialog
                 </button>
             </div>         
                 <div class="modal-body"  style="font-family:\'Cormorant Garamond\', serif;">
-                   
+                   <form method="post">
                     <div class="form-group">
                         <label for="formGroupExampleInput">Number of VIP Tickets <span style="border-radius:4px;color:#ffffff;background-color: green;padding: 5px;">' . $event['vip_price'] . '/= per Ticket</span></label>
                         <select class="custom-select" type="number" required id="numberOfVip" name="numberOfVip">
@@ -120,8 +124,8 @@ echo '<div class="modal fade" id="ticket' . $id . '" tabindex="-1"  role="dialog
 
                      <div class="form-group">
                         <label for="formGroupExampleInput">Number of Regular Tickets <span style="border-radius:4px;color:#ffffff;background-color: green;padding: 5px;">' . $event['regular_price'] . '/= per Ticket</span></label>
-                        <select class="custom-select" type="number"required id="numberOfRegular" name="numberOfRegular">
-                            <option value="selected">Select number</option>
+                        <select class="custom-select" type="number" required id="numberOfRegular" name="numberOfRegular">
+                            <option selected>Select number</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -130,13 +134,19 @@ echo '<div class="modal fade" id="ticket' . $id . '" tabindex="-1"  role="dialog
                         </select>                  
                     </div> 
                     
-                    <input type="hidden" name="reserveTicket" value="reserveTicket" />
-             
+                    <input type="hidden" name="ticketID" value="'.$id.'" id="ticketID"/>
+                    
+                    <input type="hidden" name="vipPrice" value="'.$event['vip_price'].'" id="vipPrice"/>
+                    
+                    <input type="hidden" name="regularPrice" value="'.$event['regular_price'].'" id="regularPrice"/>    
+                  
+
                 </div>
             <div class="modal-footer"  style="font-family:\'Rancho\', serif;">
                 <span id="event_response"></span>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" onclick="events();" name="reserveTicket" class="btn btn-primary">Done</button>
+                <button type="submit" name="reserveTicket" class="btn btn-primary">Done</button>
+                </form>
             </div>
             
         </div>
@@ -159,6 +169,14 @@ echo '<div class="modal fade" id="edit' . $id . '" tabindex="-1" role="dialog" s
                         <div class="form-group">
                             <label for="formGroupExampleInput">Event Name</label>
                             <input type="text" class="form-control" required name="eventName" value="' . $name . '" placeholder="Event Name">
+                        </div>
+                         <div class="form-group">
+                            <label for="formGroupExampleInput">Date</label>
+                            <input type="date" class="form-control" value="'.$eventdate.'" required name="eventDate" placeholder="event Date">
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Location</label>
+                            <input type="text" class="form-control" required name="location" value="'.$location.'" placeholder="location">
                         </div>
                         <div class="form-group">
                             <label for="formGroupExampleInput">Tickets Available</label>
